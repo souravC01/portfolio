@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://sourav-chandhok.varuoss.chatgpt.site/sitemap.xml
