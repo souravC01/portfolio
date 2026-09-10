@@ -1,0 +1,14 @@
+.about-portrait {
+  display: block;
+  width: min(100%, 320px);
+  height: auto;
+  margin-top: 28px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+@media (max-width: 650px) {
+  .about-portrait {
+    width: min(100%, 280px);
+    margin-top: 24px;
+  }
+}
