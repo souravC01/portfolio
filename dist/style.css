@@ -180,8 +180,8 @@ body {
   transform: translateX(-50%);
   z-index: 40;
   pointer-events: none;
-  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-              opacity 0.25s ease;
+  transition: transform 0.42s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.3s ease;
   will-change: transform, opacity;
 }
 
@@ -195,8 +195,8 @@ body {
   transform: translate(-50%, -160%) !important;
   opacity: 0 !important;
   pointer-events: none !important;
-  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-              opacity 0.25s ease !important;
+  transition: transform 0.42s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.3s ease !important;
 }
 
 .floating-nav {
@@ -242,7 +242,7 @@ body {
   overflow: hidden;
   width: auto;
   max-width: 650px;
-  transition: max-width 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: max-width 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .nav-links {
@@ -252,8 +252,8 @@ body {
   white-space: nowrap;
   opacity: 1;
   transform: translateY(0);
-  transition: opacity 0.2s ease-out,
-              transform 0.2s ease-out;
+  transition: opacity 0.25s ease-out,
+              transform 0.25s ease-out;
 }
 
 /* Deep-page collapsed / collapsing transitions: fold inward into center capsule */
@@ -261,15 +261,15 @@ body {
 .floating-nav.is-collapsing .nav-links-wrapper {
   max-width: 0px !important;
   pointer-events: none !important;
-  transition: max-width 0.42s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+  transition: max-width 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
 }
 
 .floating-nav.is-deep-collapsed:not(.is-scroll-up) .nav-links,
 .floating-nav.is-collapsing .nav-links {
   opacity: 0 !important;
   transform: translateY(-12px) !important;
-  transition: opacity 0.25s ease-out,
-              transform 0.25s ease-out !important;
+  transition: opacity 0.32s ease-out,
+              transform 0.32s ease-out !important;
 }
 
 /* Hover expansion when collapsed, or intentional scroll-up expansion */
@@ -277,15 +277,15 @@ body {
 .floating-nav.is-scroll-up:not(.is-collapsing) .nav-links-wrapper {
   max-width: 650px !important;
   pointer-events: auto !important;
-  transition: max-width 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+  transition: max-width 0.62s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
 }
 
 .floating-nav:hover:not(.is-clicked):not(.is-collapsing) .nav-links,
 .floating-nav.is-scroll-up:not(.is-collapsing) .nav-links {
   opacity: 1 !important;
   transform: translateY(0) !important;
-  transition: opacity 0.35s ease-out 0.08s,
-              transform 0.35s ease-out 0.08s !important;
+  transition: opacity 0.42s ease-out 0.1s,
+              transform 0.42s ease-out 0.1s !important;
 }
 
 /* Creative Agency Dual-line Text Roll Hover Effect */

@@ -650,13 +650,13 @@
             nav.classList.add('is-deep-collapsed');
             wrapper.style.pointerEvents = 'none';
 
-            // Stage 2: Once folded into capsule (~380ms), slide capsule off-screen
+            // Stage 2: Once folded into capsule (~500ms), slide capsule off-screen
             if (!collapseTimer) {
               collapseTimer = setTimeout(() => {
                 container.classList.add('is-hidden');
                 nav.classList.remove('is-collapsing');
                 collapseTimer = null;
-              }, 380);
+              }, 500);
             }
           }
         }
