@@ -201,7 +201,9 @@ body {
   -webkit-backdrop-filter: blur(12px);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
   transition: box-shadow 0.3s ease,
-              border-color 0.3s ease;
+              border-color 0.3s ease,
+              background-color 0.4s ease,
+              padding 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .floating-nav:hover,
@@ -243,6 +245,24 @@ body {
 }
 
 /* Deep-page collapsed transitions: enables silky smooth expansion and collapse on hover */
+.floating-nav.is-deep-collapsed {
+  background-color: rgba(22, 22, 22, 0.55);
+  border-color: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.16);
+  padding: 0.6rem 1.25rem;
+}
+
+.floating-nav.is-deep-collapsed:hover,
+.floating-nav.is-deep-collapsed:focus-within,
+.floating-nav.is-deep-collapsed.is-scroll-up {
+  background-color: var(--woodsmoke);
+  border-color: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.35);
+  padding: 0.85rem 1.75rem;
+}
+
 .floating-nav.is-deep-collapsed .nav-links-wrapper {
   transition: max-width 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
@@ -877,8 +897,14 @@ body {
 }
 
 /* ==========================================================================
-   SECTION HEADERS
+   SECTION HEADERS & ANCHOR OFFSETS
    ========================================================================== */
+.section-wrapper,
+.hero-section,
+.afk-section {
+  scroll-margin-top: 6.5rem;
+}
+
 .section-wrapper {
   padding-top: 5rem;
   padding-bottom: 5rem;
@@ -886,7 +912,7 @@ body {
 
 @media (min-width: 1024px) {
   .section-wrapper {
-    padding-top: 6rem;
+    padding-top: 6.5rem;
     padding-bottom: 6rem;
   }
 }
@@ -894,6 +920,13 @@ body {
 .section-header-block {
   text-align: center;
   margin-bottom: 4rem;
+}
+
+@media (min-width: 1024px) {
+  .section-header-block {
+    margin-top: 0.75rem;
+    margin-bottom: 4.5rem;
+  }
 }
 
 .section-eyebrow {

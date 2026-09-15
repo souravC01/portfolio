@@ -364,7 +364,7 @@
             targetEl.setAttribute('tabindex', '-1');
             targetEl.focus({ preventScroll: true });
             if (lenisInstance && !reducedMotion.matches) {
-              lenisInstance.scrollTo(targetEl, { offset: -40, duration: 1.2 });
+              lenisInstance.scrollTo(targetEl, { offset: -90, duration: 1.2 });
             } else {
               targetEl.scrollIntoView({ behavior: reducedMotion.matches ? 'instant' : 'smooth' });
             }
@@ -586,7 +586,7 @@
                 document.activeElement.blur();
               }
               if (lenisInstance) {
-                lenisInstance.scrollTo(targetEl, { offset: -40, duration: 1.2 });
+                lenisInstance.scrollTo(targetEl, { offset: -90, duration: 1.2 });
               } else {
                 targetEl.scrollIntoView({ behavior: 'smooth' });
               }
