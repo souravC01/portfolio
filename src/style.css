@@ -195,6 +195,8 @@ body {
   transform: translate(-50%, -160%);
   opacity: 0;
   pointer-events: none;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1) 0.24s,
+              opacity 0.25s ease 0.24s;
 }
 
 .floating-nav {
@@ -240,6 +242,7 @@ body {
   overflow: hidden;
   width: auto;
   max-width: var(--nav-wrapper-width, 650px);
+  transition: max-width 0.26s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .nav-links {
@@ -249,16 +252,18 @@ body {
   white-space: nowrap;
   opacity: var(--nav-links-opacity, 1);
   transform: translateY(var(--nav-links-y, 0px));
+  transition: opacity 0.18s ease-out,
+              transform 0.18s ease-out;
 }
 
-/* Deep-page collapsed transitions: enables silky smooth expansion and collapse on hover */
+/* Deep-page collapsed transitions: enables silky smooth inward collapse on scroll down or unhover */
 .floating-nav.is-deep-collapsed .nav-links-wrapper {
-  transition: max-width 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: max-width 0.26s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .floating-nav.is-deep-collapsed .nav-links {
-  transition: opacity 0.35s ease-out,
-              transform 0.35s ease-out;
+  transition: opacity 0.18s ease-out,
+              transform 0.18s ease-out;
 }
 
 /* Hover expansion when collapsed, or intentional scroll-up expansion */
@@ -940,6 +945,14 @@ body {
   max-width: 650px;
   margin: 0.75rem auto 0;
   line-height: 1.6;
+}
+
+@media (min-width: 768px) {
+  #afk .section-subtitle,
+  #skills .section-subtitle {
+    max-width: none;
+    white-space: nowrap;
+  }
 }
 
 /* ==========================================================================

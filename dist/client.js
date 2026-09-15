@@ -59,6 +59,7 @@
       // Experiences
       exp_eyebrow: 'WORK HISTORY & INDUSTRY EXPERIENCE',
       exp_title: 'Professional Experience',
+      exp_subtitle: 'Building reliable full-stack applications through collaborative development, testing, and release delivery.',
       download_resume: 'Download my resume',
       projects_eyebrow: 'Featured Projects & Applications',
       projects_title: 'My Projects',
@@ -129,6 +130,7 @@
       // Experiences
       exp_eyebrow: 'PARCOURS PROFESSIONNEL & EXPÉRIENCE',
       exp_title: 'Expérience Professionnelle',
+      exp_subtitle: 'Création d’applications fiables grâce au développement collaboratif, aux tests rigoureux et à des mises en production maîtrisées.',
       download_resume: 'Télécharger mon CV',
       projects_eyebrow: 'Projets & Applications Réalisés',
       projects_title: 'Mes Projets',
@@ -620,11 +622,8 @@
     };
     window.addEventListener('resize', updateFullWidth);
 
-    // Keep fully expanded for top 180px (never collapses on a single scroll notch!)
+    // Keep fully expanded for top 180px (stationary hero header)
     const startScroll = 180;
-    // Luxurious 370px gradual scrubbing window down through the hero
-    const endScroll = 550;
-    const scrollSpan = endScroll - startScroll;
 
     let lastY = window.pageYOffset || document.documentElement.scrollTop;
     let isTicking = false;
@@ -642,47 +641,24 @@
         nav.style.removeProperty('--nav-links-y');
         wrapper.style.pointerEvents = 'auto';
       }
-      // 2. Transition zone (180px - 550px)
-      else if (currentY <= endScroll) {
-        nav.classList.remove('is-deep-collapsed');
-
-        // Continuous scrub interpolation
-        const progress = Math.min(Math.max((currentY - startScroll) / scrollSpan, 0), 1);
-        const smooth = progress * progress * (3 - 2 * progress);
-        const currentWidth = Math.max(0, fullWidth * (1 - smooth)).toFixed(1);
-        const textOpacity = Math.max(0, 1 - progress * 1.25).toFixed(2);
-        const textTranslateY = (-20 * progress).toFixed(1);
-
-        nav.style.setProperty('--nav-wrapper-width', `${currentWidth}px`);
-        nav.style.setProperty('--nav-links-opacity', `${textOpacity}`);
-        nav.style.setProperty('--nav-links-y', `${textTranslateY}px`);
-        wrapper.style.pointerEvents = progress > 0.85 ? 'none' : 'auto';
-
-        // Auto-hide when scrolling down past hero
-        if (diff > 8) {
-          container.classList.add('is-hidden');
-          nav.classList.remove('is-scroll-up');
-        } else if (diff < -8) {
-          container.classList.remove('is-hidden');
-        }
-      }
-      // 3. Deep down the page (> 550px): Smart Headroom Pattern
+      // 2. Beyond top 180px: Smart Headroom with Symmetrical Inward Collapse & Outward Expand
       else {
         nav.classList.add('is-deep-collapsed');
         nav.style.setProperty('--nav-wrapper-width', '0px');
         nav.style.setProperty('--nav-links-opacity', '0');
         nav.style.setProperty('--nav-links-y', '-20px');
-        wrapper.style.pointerEvents = 'none';
 
         // Check scroll direction for headroom behavior
         if (diff > 8) {
-          // Scrolling down: completely hide off-screen (0% blocking!)
+          // Scrolling down: collapse inward and glide off-screen
           container.classList.add('is-hidden');
           nav.classList.remove('is-scroll-up');
-        } else if (diff < -10) {
-          // Scrolling up: reveal smoothly
+          wrapper.style.pointerEvents = 'none';
+        } else if (diff < -8) {
+          // Scrolling up: slide down and unfurl outward from center
           container.classList.remove('is-hidden');
           nav.classList.add('is-scroll-up');
+          wrapper.style.pointerEvents = 'auto';
         }
       }
 
@@ -722,7 +698,16 @@
     window.addEventListener('scroll', onScroll, { passive: true });
 
     // Initial check on load
-    updateNavbar(window.pageYOffset || document.documentElement.scrollTop);
+    const initialY = window.pageYOffset || document.documentElement.scrollTop;
+    if (initialY > startScroll) {
+      container.classList.add('is-hidden');
+      nav.classList.add('is-deep-collapsed');
+      nav.style.setProperty('--nav-wrapper-width', '0px');
+      nav.style.setProperty('--nav-links-opacity', '0');
+      nav.style.setProperty('--nav-links-y', '-20px');
+      wrapper.style.pointerEvents = 'none';
+    }
+    updateNavbar(initialY);
   }
 
   // --- Skills Category Filter Tabs ---

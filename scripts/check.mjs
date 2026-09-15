@@ -21,6 +21,9 @@ async function runChecks() {
     assert(indexHtml.includes(`id="${sec}"`), `index.html must contain section #${sec}`);
   }
 
+  assert.doesNotMatch(indexHtml, /\/\/ AWAY FROM THE KEYBOARD/, 'AFK header must not include the removed eyebrow');
+  assert.match(indexHtml, /Professional Experience<\/h2>\s*<p class="section-subtitle" data-i18n="exp_subtitle">Building reliable full-stack applications through collaborative development, testing, and release delivery\.<\/p>/, 'Professional Experience must include its supporting subtitle');
+
   // The first experience pillar uses the shared metric-callout pattern.
   const firstExperiencePillar = indexHtml.match(/<!-- Pillar 1:[\s\S]*?<div class="exp-pillar">([\s\S]*?)<!-- Pillar 2:/)?.[1] ?? '';
   assert.match(firstExperiencePillar, /4<span class="exp-plus">\+<\/span>[\s\S]*Enterprise Applications/, 'First experience pillar must show 4+ enterprise applications');
