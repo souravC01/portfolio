@@ -2,7 +2,7 @@ import { mkdir, writeFile, copyFile, cp, readFile } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { projects } from '../src/projects.mjs';
-import { projectCards, caseStudy, contactSection } from '../src/project-pages.mjs';
+import { projectCards, projectsFilterBar, caseStudy, contactSection } from '../src/project-pages.mjs';
 
 const out = new URL('../dist/', import.meta.url);
 const src = new URL('../src/', import.meta.url);
@@ -289,7 +289,8 @@ async function build() {
     <section id="afk" class="section-wrapper afk-section">
       <div class="container">
         <div class="section-header-block reveal">
-          <h2 class="section-title" data-i18n="afk_title">Beyond the Terminal — AFK</h2>
+          <p class="section-eyebrow" data-i18n="afk_eyebrow">OUTSIDE THE CODE</p>
+          <h2 class="section-title" data-i18n="afk_title">Beyond the Terminal</h2>
           <p class="section-subtitle" data-i18n="afk_subtitle">A mix of high-altitude trails, calculated moves, open water, and life outside code.</p>
         </div>
 
@@ -830,12 +831,14 @@ async function build() {
     </section>
 
     <!-- ==================== PROJECTS SECTION (#projects) ==================== -->
-    <section id="projects" class="section-wrapper">
+    <section id="projects" class="section-wrapper projects-section">
       <div class="container">
         <div class="section-header-block reveal">
-          <p class="section-eyebrow" data-i18n="projects_eyebrow">Featured Projects & Applications</p>
-          <h2 class="section-title" data-i18n="projects_title">My Projects</h2>
+          <p class="section-eyebrow" data-i18n="projects_eyebrow">// FEATURED WORK &amp; ENGINEERING EVIDENCE</p>
+          <h2 class="section-title" data-i18n="projects_title">Featured Projects</h2>
+          <p class="section-subtitle" data-i18n="projects_subtitle">Production systems, distributed architectures, applied AI workflows, and empirical research.</p>
         </div>
+        ${projectsFilterBar()}
         <div class="projects-grid">
           ${projectCards()}
         </div>

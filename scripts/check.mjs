@@ -22,6 +22,9 @@ async function runChecks() {
   }
 
   assert.doesNotMatch(indexHtml, /\/\/ AWAY FROM THE KEYBOARD/, 'AFK header must not include the removed eyebrow');
+  assert.match(indexHtml, /<p class="section-eyebrow" data-i18n="afk_eyebrow">OUTSIDE THE CODE<\/p>\s*<h2 class="section-title" data-i18n="afk_title">Beyond the Terminal<\/h2>/, 'Personal interests section must include its eyebrow above the title');
+  assert.match(indexHtml, /<h2 class="section-title" data-i18n="afk_title">Beyond the Terminal<\/h2>/, 'Personal interests section must use the selected Beyond the Terminal title');
+  assert.doesNotMatch(indexHtml, /Beyond the Terminal — AFK/, 'Personal interests title must not retain the AFK suffix');
   assert.match(indexHtml, /Professional Experience<\/h2>\s*<p class="section-subtitle" data-i18n="exp_subtitle">Building reliable full-stack applications through collaborative development, testing, and release delivery\.<\/p>/, 'Professional Experience must include its supporting subtitle');
 
   // The first experience pillar uses the shared metric-callout pattern.

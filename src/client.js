@@ -59,8 +59,9 @@
       exp_title: 'Professional Experience',
       exp_subtitle: 'Building reliable full-stack applications through collaborative development, testing, and release delivery.',
       download_resume: 'Download my resume',
-      projects_eyebrow: 'Featured Projects & Applications',
-      projects_title: 'My Projects',
+      projects_eyebrow: '// FEATURED WORK & ENGINEERING EVIDENCE',
+      projects_title: 'Featured Projects',
+      projects_subtitle: 'Production systems, distributed architectures, applied AI workflows, and empirical research.',
       made_by: 'Made by Sourav Chandhok',
       exp_1_title: 'Application Programmer Analyst Co-op',
       exp_1_company: 'Ministry of Education, Ontario Public Service',
@@ -72,8 +73,8 @@
       proj_3_desc: 'Modernized Java campus marketplace for York University students featuring Spring Security, OTP verification, RabbitMQ asynchronous messaging queue, and containerized deployment with Kubernetes.',
       typewriter_words: ['Full-Stack Developer', 'Java Backend Engineer', 'AI Application Developer', 'Software Engineer'],
       // AFK / Hobbies
-      afk_eyebrow: '// AWAY FROM THE KEYBOARD',
-      afk_title: 'Beyond the Terminal — AFK',
+      afk_eyebrow: 'OUTSIDE THE CODE',
+      afk_title: 'Beyond the Terminal',
       afk_subtitle: 'A mix of high-altitude trails, calculated moves, open water, and life outside code.',
       afk_tag_trails: '[TRAILS & NATURE]',
       afk_trails_title: 'Best thoughts come mid-trail',
@@ -130,8 +131,9 @@
       exp_title: 'Expérience Professionnelle',
       exp_subtitle: 'Création d’applications fiables grâce au développement collaboratif, aux tests rigoureux et à des mises en production maîtrisées.',
       download_resume: 'Télécharger mon CV',
-      projects_eyebrow: 'Projets & Applications Réalisés',
-      projects_title: 'Mes Projets',
+      projects_eyebrow: '// PROJETS VEDETTES & PREUVES D’INGÉNIERIE',
+      projects_title: 'Projets Vedettes',
+      projects_subtitle: 'Systèmes de production, architectures distribuées, flux d’IA appliquée et recherche empirique.',
       made_by: 'Conçu par Sourav Chandhok',
       exp_1_title: "Analyste Programmeur d'Applications (Stage)",
       exp_1_company: "Ministère de l'Éducation, Fonction publique de l'Ontario",
@@ -142,8 +144,8 @@
       proj_2_desc: "Simulateur d'impact d'accès conçu avec Java 21, Spring Boot et React. Modèles déterministes, microservices asynchrones Kafka et tests d'intégration Testcontainers avec PostgreSQL.",
       typewriter_words: ['Développeur Full-Stack', 'Ingénieur Java Backend', 'Développeur Applications IA', 'Ingénieur Logiciel'],
       // AFK / Hobbies
-      afk_eyebrow: '// HORS DU CLAVIER',
-      afk_title: 'Au-delà du terminal — AFK',
+      afk_eyebrow: 'HORS DU CODE',
+      afk_title: 'Au-delà du terminal',
       afk_subtitle: 'Un mélange de sentiers en haute altitude, de coups calculés, de grand large et de vie hors du code.',
       afk_tag_trails: '[SENTIERS & NATURE]',
       afk_trails_title: 'Les meilleures idées naissent sur les sentiers',
@@ -612,50 +614,60 @@
     const links = document.querySelector('.nav-links');
     if (!nav || !wrapper || !links || !container) return;
 
-    let fullWidth = wrapper.scrollWidth || 540;
-    const updateFullWidth = () => {
-      if ((window.pageYOffset || document.documentElement.scrollTop) <= 180) {
-        fullWidth = wrapper.scrollWidth || 540;
-      }
-    };
-    window.addEventListener('resize', updateFullWidth);
-
     // Keep fully expanded for top 180px (stationary hero header)
     const startScroll = 180;
 
     let lastY = window.pageYOffset || document.documentElement.scrollTop;
     let isTicking = false;
+    let collapseTimer = null;
 
     function updateNavbar(currentY) {
       const diff = currentY - lastY;
 
       // 1. Within top 180px: Hero state — always visible and fully expanded
       if (currentY <= startScroll) {
+        if (collapseTimer) {
+          clearTimeout(collapseTimer);
+          collapseTimer = null;
+        }
         container.classList.remove('is-hidden');
         nav.classList.remove('is-scroll-up');
+        nav.classList.remove('is-collapsing');
         nav.classList.remove('is-deep-collapsed');
-        nav.style.removeProperty('--nav-wrapper-width');
-        nav.style.removeProperty('--nav-links-opacity');
-        nav.style.removeProperty('--nav-links-y');
         wrapper.style.pointerEvents = 'auto';
       }
       // 2. Beyond top 180px: Smart Headroom with Symmetrical Inward Collapse & Outward Expand
       else {
-        nav.classList.add('is-deep-collapsed');
-        nav.style.setProperty('--nav-wrapper-width', '0px');
-        nav.style.setProperty('--nav-links-opacity', '0');
-        nav.style.setProperty('--nav-links-y', '-20px');
-
-        // Check scroll direction for headroom behavior
+        // SCROLL DOWN: Fold inward to center capsule, then slide off-screen
         if (diff > 8) {
-          // Scrolling down: collapse inward and glide off-screen
-          container.classList.add('is-hidden');
-          nav.classList.remove('is-scroll-up');
-          wrapper.style.pointerEvents = 'none';
-        } else if (diff < -8) {
-          // Scrolling up: slide down and unfurl outward from center
+          // Only trigger collapse sequence if currently visible
+          if (!container.classList.contains('is-hidden')) {
+            // Stage 1: Fold links inward from sides into center capsule
+            nav.classList.remove('is-scroll-up');
+            nav.classList.add('is-collapsing');
+            nav.classList.add('is-deep-collapsed');
+            wrapper.style.pointerEvents = 'none';
+
+            // Stage 2: Once folded into capsule (~380ms), slide capsule off-screen
+            if (!collapseTimer) {
+              collapseTimer = setTimeout(() => {
+                container.classList.add('is-hidden');
+                nav.classList.remove('is-collapsing');
+                collapseTimer = null;
+              }, 380);
+            }
+          }
+        }
+        // SCROLL UP: Slide capsule into view, then unfurl outward from center
+        else if (diff < -8) {
+          if (collapseTimer) {
+            clearTimeout(collapseTimer);
+            collapseTimer = null;
+          }
           container.classList.remove('is-hidden');
+          nav.classList.remove('is-collapsing');
           nav.classList.add('is-scroll-up');
+          nav.classList.add('is-deep-collapsed');
           wrapper.style.pointerEvents = 'auto';
         }
       }
@@ -666,8 +678,14 @@
     // Top-of-viewport mouse movement reveal for desktop convenience
     document.addEventListener('mousemove', (e) => {
       if (e.clientY <= 30 && container.classList.contains('is-hidden')) {
+        if (collapseTimer) {
+          clearTimeout(collapseTimer);
+          collapseTimer = null;
+        }
         container.classList.remove('is-hidden');
+        nav.classList.remove('is-collapsing');
         nav.classList.add('is-scroll-up');
+        nav.classList.add('is-deep-collapsed');
       }
     });
 
@@ -700,9 +718,6 @@
     if (initialY > startScroll) {
       container.classList.add('is-hidden');
       nav.classList.add('is-deep-collapsed');
-      nav.style.setProperty('--nav-wrapper-width', '0px');
-      nav.style.setProperty('--nav-links-opacity', '0');
-      nav.style.setProperty('--nav-links-y', '-20px');
       wrapper.style.pointerEvents = 'none';
     }
     updateNavbar(initialY);
@@ -743,6 +758,46 @@
     });
   }
 
+  // --- Projects Category Filter ---
+  function initProjectsFilter() {
+    const filterBar = document.querySelector('.projects-filter-bar');
+    if (!filterBar) return;
+
+    const filterBtns = filterBar.querySelectorAll('.project-filter-btn');
+    const cards = document.querySelectorAll('.projects-grid .project-card');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const filter = btn.dataset.filter;
+
+        // Update active tab button
+        filterBtns.forEach(b => {
+          b.classList.remove('active');
+          b.setAttribute('aria-selected', 'false');
+        });
+        btn.classList.add('active');
+        btn.setAttribute('aria-selected', 'true');
+
+        // Filter cards smoothly
+        cards.forEach(card => {
+          const category = card.dataset.category;
+          if (filter === 'all' || category === filter) {
+            card.classList.remove('is-hidden');
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(8px)';
+            requestAnimationFrame(() => {
+              card.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+              card.style.opacity = '1';
+              card.style.transform = 'none';
+            });
+          } else {
+            card.classList.add('is-hidden');
+          }
+        });
+      });
+    });
+  }
+
   // --- Initialize Everything ---
   function initAll() {
     initSmoothScroll();
@@ -754,6 +809,7 @@
     initScrollSpy();
     initAudioEqualizer();
     initSkillsFilter();
+    initProjectsFilter();
   }
 
   if (document.readyState === 'loading') {
