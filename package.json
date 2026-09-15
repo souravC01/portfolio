@@ -1,1 +1,1 @@
-{"name":"sourav-portfolio","private":true,"type":"module","scripts":{"build":"node scripts/build.mjs","test":"node scripts/check.mjs","dev":"node scripts/serve.mjs"}}
+{"name":"sourav-portfolio","private":true,"type":"module","scripts":{"build":"node scripts/build.mjs","test":"node scripts/check.mjs","dev":"node scripts/serve.mjs","start":"node scripts/serve.mjs"},"dependencies":{"lenis":"^1.3.26"}}

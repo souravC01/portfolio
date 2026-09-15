@@ -5,14 +5,18 @@ Static portfolio with a homepage and four case studies. The public files live in
 ## Maintain
 
 - Edit project content in `src/projects.mjs`.
-- Edit homepage/shared markup in `scripts/build.mjs`.
-- Edit styling in `src/style.css` and the copy-email interaction in `src/client.js`.
-- Replace `dist/resume.pdf` when the résumé changes; retain its filename.
-- User-provided screenshots and the research figure live in `dist/assets/`.
+- Edit homepage markup in `scripts/build.mjs`; project cards and case-study templates live in `src/project-pages.mjs`.
+- Edit styling in `src/style.css`; translations, navigation, animations, and audio live in `src/client.js`.
+- Replace `src/assets/resume.pdf` when the résumé changes; retain its filename.
+- Assets, including screenshots and the research figure, live in `src/assets/` and are copied by the build.
 
 Run `npm run build`, then `npm test`. Preview using `npm run dev` at http://127.0.0.1:4173.
 
-No dependency installation is necessary. Node.js is required for maintenance, but the published website has no server runtime. Google Fonts has a local system-font fallback.
+No dependency installation is necessary for the build or structural tests. Node.js is required for maintenance, but the published website has no server runtime. Fonts are served locally with system-font fallbacks.
+
+For keyboard, reduced-motion, no-JavaScript, and project-navigation regression tests, start the preview and run `node scripts/check-browser.mjs`. This optional test requires Playwright and Microsoft Edge; alternatively pass the absolute path to an existing Playwright `index.mjs` installation as the first argument.
+
+`src/home.mjs` and `src/portrait.css` are legacy files and are not used by the current build. Case studies are English-only; the homepage retains its EN/FR controls.
 
 ## Scope
 
