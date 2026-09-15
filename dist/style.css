@@ -180,12 +180,21 @@ body {
   transform: translateX(-50%);
   z-index: 40;
   pointer-events: none;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.25s ease;
+  will-change: transform, opacity;
 }
 
 @media (min-width: 1024px) {
   .floating-nav-container {
     display: block;
   }
+}
+
+.floating-nav-container.is-hidden {
+  transform: translate(-50%, -160%);
+  opacity: 0;
+  pointer-events: none;
 }
 
 .floating-nav {
@@ -201,9 +210,7 @@ body {
   -webkit-backdrop-filter: blur(12px);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
   transition: box-shadow 0.3s ease,
-              border-color 0.3s ease,
-              background-color 0.4s ease,
-              padding 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+              border-color 0.3s ease;
 }
 
 .floating-nav:hover,
@@ -245,24 +252,6 @@ body {
 }
 
 /* Deep-page collapsed transitions: enables silky smooth expansion and collapse on hover */
-.floating-nav.is-deep-collapsed {
-  background-color: rgba(22, 22, 22, 0.55);
-  border-color: rgba(255, 255, 255, 0.18);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.16);
-  padding: 0.6rem 1.25rem;
-}
-
-.floating-nav.is-deep-collapsed:hover,
-.floating-nav.is-deep-collapsed:focus-within,
-.floating-nav.is-deep-collapsed.is-scroll-up {
-  background-color: var(--woodsmoke);
-  border-color: rgba(255, 255, 255, 0.25);
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.35);
-  padding: 0.85rem 1.75rem;
-}
-
 .floating-nav.is-deep-collapsed .nav-links-wrapper {
   transition: max-width 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }

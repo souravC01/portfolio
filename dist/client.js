@@ -604,12 +604,13 @@
     }
   }
 
-  // --- Collapsible Desktop Navbar on Scroll (Gradual Scrubbing & Deep Reveal) ---
+  // --- Collapsible Desktop Navbar on Scroll (Gradual Scrubbing & Smart Headroom Auto-Hide) ---
   function initCollapsibleNavbar() {
+    const container = document.querySelector('.floating-nav-container');
     const nav = document.querySelector('.floating-nav');
     const wrapper = document.querySelector('.nav-links-wrapper');
     const links = document.querySelector('.nav-links');
-    if (!nav || !wrapper || !links) return;
+    if (!nav || !wrapper || !links || !container) return;
 
     let fullWidth = wrapper.scrollWidth || 540;
     const updateFullWidth = () => {
@@ -629,34 +630,43 @@
     let isTicking = false;
 
     function updateNavbar(currentY) {
-      // 1. Within top 550px: CONTINUOUS SCROLL-DRIVEN SCRUBBING
-      if (currentY <= endScroll) {
+      const diff = currentY - lastY;
+
+      // 1. Within top 180px: Hero state — always visible and fully expanded
+      if (currentY <= startScroll) {
+        container.classList.remove('is-hidden');
         nav.classList.remove('is-scroll-up');
         nav.classList.remove('is-deep-collapsed');
+        nav.style.removeProperty('--nav-wrapper-width');
+        nav.style.removeProperty('--nav-links-opacity');
+        nav.style.removeProperty('--nav-links-y');
+        wrapper.style.pointerEvents = 'auto';
+      }
+      // 2. Transition zone (180px - 550px)
+      else if (currentY <= endScroll) {
+        nav.classList.remove('is-deep-collapsed');
 
-        if (currentY <= startScroll) {
-          // Fully expanded at top of page / initial hero scroll
-          nav.style.removeProperty('--nav-wrapper-width');
-          nav.style.removeProperty('--nav-links-opacity');
-          nav.style.removeProperty('--nav-links-y');
-          wrapper.style.pointerEvents = 'auto';
-        } else {
-          // Continuous, silky smooth interpolation matching user's scroll speed
-          const progress = Math.min(Math.max((currentY - startScroll) / scrollSpan, 0), 1);
-          // Hermite smoothstep curve for natural easing
-          const smooth = progress * progress * (3 - 2 * progress);
-          const currentWidth = Math.max(0, fullWidth * (1 - smooth)).toFixed(1);
-          // Text dims progressively: reaches ~0.35 at 50% progress (matching user's Image 2!)
-          const textOpacity = Math.max(0, 1 - progress * 1.25).toFixed(2);
-          const textTranslateY = (-20 * progress).toFixed(1);
+        // Continuous scrub interpolation
+        const progress = Math.min(Math.max((currentY - startScroll) / scrollSpan, 0), 1);
+        const smooth = progress * progress * (3 - 2 * progress);
+        const currentWidth = Math.max(0, fullWidth * (1 - smooth)).toFixed(1);
+        const textOpacity = Math.max(0, 1 - progress * 1.25).toFixed(2);
+        const textTranslateY = (-20 * progress).toFixed(1);
 
-          nav.style.setProperty('--nav-wrapper-width', `${currentWidth}px`);
-          nav.style.setProperty('--nav-links-opacity', `${textOpacity}`);
-          nav.style.setProperty('--nav-links-y', `${textTranslateY}px`);
-          wrapper.style.pointerEvents = progress > 0.85 ? 'none' : 'auto';
+        nav.style.setProperty('--nav-wrapper-width', `${currentWidth}px`);
+        nav.style.setProperty('--nav-links-opacity', `${textOpacity}`);
+        nav.style.setProperty('--nav-links-y', `${textTranslateY}px`);
+        wrapper.style.pointerEvents = progress > 0.85 ? 'none' : 'auto';
+
+        // Auto-hide when scrolling down past hero
+        if (diff > 8) {
+          container.classList.add('is-hidden');
+          nav.classList.remove('is-scroll-up');
+        } else if (diff < -8) {
+          container.classList.remove('is-hidden');
         }
       }
-      // 2. Deep down the page (> 550px)
+      // 3. Deep down the page (> 550px): Smart Headroom Pattern
       else {
         nav.classList.add('is-deep-collapsed');
         nav.style.setProperty('--nav-wrapper-width', '0px');
@@ -664,17 +674,28 @@
         nav.style.setProperty('--nav-links-y', '-20px');
         wrapper.style.pointerEvents = 'none';
 
-        // Check scroll direction for intentional reveal
-        const diff = currentY - lastY;
-        if (diff < -20) {
-          nav.classList.add('is-scroll-up');
-        } else if (diff > 15) {
+        // Check scroll direction for headroom behavior
+        if (diff > 8) {
+          // Scrolling down: completely hide off-screen (0% blocking!)
+          container.classList.add('is-hidden');
           nav.classList.remove('is-scroll-up');
+        } else if (diff < -10) {
+          // Scrolling up: reveal smoothly
+          container.classList.remove('is-hidden');
+          nav.classList.add('is-scroll-up');
         }
       }
 
       lastY = currentY;
     }
+
+    // Top-of-viewport mouse movement reveal for desktop convenience
+    document.addEventListener('mousemove', (e) => {
+      if (e.clientY <= 30 && container.classList.contains('is-hidden')) {
+        container.classList.remove('is-hidden');
+        nav.classList.add('is-scroll-up');
+      }
+    });
 
     // Hover & link-click handlers for seamless collapsed interactions
     nav.addEventListener('mouseleave', () => {
