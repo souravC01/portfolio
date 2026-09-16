@@ -46,6 +46,13 @@ async function runChecks() {
   const testingExperiencePillar = indexHtml.match(/<!-- Pillar 2:[\s\S]*?<div class="exp-pillar">([\s\S]*?)<!-- Pillar 3:/)?.[1] ?? '';
   assert.match(testingExperiencePillar, /Test Cases Executed \(Selenium &amp; Manual\)/, 'Testing methods must remain inline with the test case label');
 
+  const roleImpactHtml = await readFile(path.join(root, 'projects', 'roleimpact', 'index.html'), 'utf8');
+  assert.match(roleImpactHtml, /RoleImpact is a Java 21 and Spring Boot simulation platform/, 'RoleImpact must use the revised case-study summary');
+  assert.match(roleImpactHtml, /<span>Flyway<\/span>/, 'RoleImpact must include the Flyway tag');
+  assert.match(roleImpactHtml, /<section id="role"><h2>What I built<\/h2>/, 'RoleImpact must use the What I built heading');
+  assert.match(roleImpactHtml, /<strong>Docker:<\/strong> provides a reproducible local PostgreSQL environment/, 'RoleImpact architecture must describe the Docker development environment');
+  assert.doesNotMatch(roleImpactHtml, /<strong>Apache Kafka:<\/strong>/, 'RoleImpact architecture must not include the removed Kafka bullet');
+
   // 3. Check assets
   const requiredAssets = [
     'style.css',
