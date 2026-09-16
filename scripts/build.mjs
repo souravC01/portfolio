@@ -260,7 +260,7 @@ async function build() {
               Computer Science graduate from York University building resilient Java backends, modern React applications, and production-tested systems.
             </p>
             <p class="location-line" data-i18n="hero_location">Based in Toronto · Seeking full-time opportunities across Canada.</p>
-            <div class="hero-actions"><a class="resume-download-btn" href="/assets/resume.pdf" download="Sourav-Chandhok-Resume.pdf" data-i18n="download_resume">Download my resume</a></div>
+            <div class="hero-actions"><a class="resume-download-btn" href="https://drive.google.com/drive/folders/1KaP-RA-Se7_0GJAdX_mI6Da3yhFThYQa?usp=drive_link" target="_blank" rel="noopener noreferrer" data-i18n="download_resume">Download my resume</a></div>
             <div class="social-links-grid">
               <a href="https://github.com/souravC01" target="_blank" rel="noopener noreferrer" class="social-card" aria-label="GitHub">
                 ${ICONS.github}
@@ -291,7 +291,7 @@ async function build() {
         <div class="section-header-block reveal">
           <p class="section-eyebrow" data-i18n="afk_eyebrow">OUTSIDE THE CODE</p>
           <h2 class="section-title" data-i18n="afk_title">Beyond the Terminal</h2>
-          <p class="section-subtitle" data-i18n="afk_subtitle">A mix of high-altitude trails, calculated moves, open water, and life outside code.</p>
+          <p class="section-subtitle" data-i18n="afk_subtitle">A mix of high-altitude trails, alpine lakes, open water, and life outside code.</p>
         </div>
 
         <div class="afk-bento-grid">
@@ -334,22 +334,22 @@ async function build() {
             <div class="bento-img-tag">// alpine-lake.jpg</div>
           </div>
 
-          <!-- Card 4: Strategy & Chess Story Card -->
+          <!-- Card 4: Hiking & Exploration Story Card -->
           <div class="bento-card bento-story-card reveal">
             <div class="bento-corner bento-corner-tl"></div>
             <div class="bento-corner bento-corner-tr"></div>
             <div class="bento-corner bento-corner-bl"></div>
             <div class="bento-corner bento-corner-br"></div>
             <div class="bento-content">
-              <span class="bento-tag" data-i18n="afk_tag_chess">[STRATEGY &amp; CHESS]</span>
-              <h3 class="bento-title" data-i18n="afk_chess_title">64 squares, calculated patience</h3>
+              <span class="bento-tag" data-i18n="afk_tag_chess">[HIKING &amp; EXPLORATION]</span>
+              <h3 class="bento-title" data-i18n="afk_chess_title">The best views are earned</h3>
               <p class="bento-desc" data-i18n="afk_chess_desc">
-                Deep positional play, pattern recognition, and calculating moves ahead under strict blitz clock pressure. The ultimate sandbox for tactical trade-offs.
+                Exploring mountain trails, alpine lakes, and the landscapes waiting beyond the familiar route.
               </p>
             </div>
             <div class="bento-footer-meta">
-              <span>1940 ELO</span>
-              <span>3+2 BLITZ</span>
+              <span>ALPINE TRAILS</span>
+              <span>OPEN AIR</span>
             </div>
           </div>
 
@@ -823,7 +823,7 @@ async function build() {
         </div>
 
         <div class="resume-download-wrapper reveal">
-          <a href="/assets/resume.pdf" download="Sourav-Chandhok-Resume.pdf" class="resume-download-btn">
+          <a href="https://drive.google.com/drive/folders/1KaP-RA-Se7_0GJAdX_mI6Da3yhFThYQa?usp=drive_link" target="_blank" rel="noopener noreferrer" class="resume-download-btn">
             <span data-i18n="download_resume">Download my resume</span>
           </a>
         </div>

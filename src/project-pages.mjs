@@ -86,7 +86,7 @@ export const contactSection = `<section id="contact" class="section-wrapper cont
   <p class="section-eyebrow" data-i18n="contact_eyebrow">LET'S CONNECT</p>
   <h2 class="section-title" data-i18n="contact_title">Have an opportunity in mind?</h2>
   <p data-i18n="contact_body">I'm seeking full-time Java backend, full-stack, and AI application development opportunities across Canada.</p>
-  <div class="project-actions"><a href="mailto:sourav.chandhok@gmail.com">sourav.chandhok@gmail.com</a><a href="https://www.linkedin.com/in/souravchandhok">LinkedIn ↗</a><a href="/assets/resume.pdf" download data-i18n="download_resume">Download my resume</a></div>
+  <div class="project-actions"><a href="mailto:sourav.chandhok@gmail.com">sourav.chandhok@gmail.com</a><a href="https://www.linkedin.com/in/souravchandhok">LinkedIn ↗</a><a href="https://drive.google.com/drive/folders/1KaP-RA-Se7_0GJAdX_mI6Da3yhFThYQa?usp=drive_link" target="_blank" rel="noopener noreferrer" data-i18n="download_resume">Download my resume</a></div>
 </div></section>`;
 
 export function caseStudy(project, index) {

@@ -3,6 +3,7 @@ import { readFile, stat } from 'node:fs/promises';
 import path from 'node:path';
 
 const root = path.resolve('dist');
+const resumeDriveUrl = 'https://drive.google.com/drive/folders/1KaP-RA-Se7_0GJAdX_mI6Da3yhFThYQa?usp=drive_link';
 
 async function runChecks() {
   console.log('Running automated validation on build output...');
@@ -14,6 +15,9 @@ async function runChecks() {
   assert.equal((indexHtml.match(/<h1[ >]/g) || []).length, 1, 'Should have exactly one h1');
   assert.match(indexHtml, /<title>.+<\/title>/, 'Must have a title tag');
   assert.match(indexHtml, /<meta name="description" content="[^"]+"/, 'Must have a meta description');
+  assert.equal(indexHtml.split(`href="${resumeDriveUrl}"`).length - 1, 3, 'Every homepage resume link must use the Google Drive folder');
+  assert.equal(indexHtml.split(`href="${resumeDriveUrl}" target="_blank" rel="noopener noreferrer"`).length - 1, 3, 'Every homepage resume link must open securely in a new tab');
+  assert.doesNotMatch(indexHtml, /href="\/(?:assets\/)?resume\.pdf"/, 'Homepage must not link directly to a local resume PDF');
 
   // 2. Check sections
   const requiredSections = ['about', 'skills', 'education', 'experiences', 'projects', 'contact'];
@@ -25,6 +29,8 @@ async function runChecks() {
   assert.match(indexHtml, /<p class="section-eyebrow" data-i18n="afk_eyebrow">OUTSIDE THE CODE<\/p>\s*<h2 class="section-title" data-i18n="afk_title">Beyond the Terminal<\/h2>/, 'Personal interests section must include its eyebrow above the title');
   assert.match(indexHtml, /<h2 class="section-title" data-i18n="afk_title">Beyond the Terminal<\/h2>/, 'Personal interests section must use the selected Beyond the Terminal title');
   assert.doesNotMatch(indexHtml, /Beyond the Terminal — AFK/, 'Personal interests title must not retain the AFK suffix');
+  assert.match(indexHtml, /\[HIKING &amp; EXPLORATION\][\s\S]*?The best views are earned[\s\S]*?Exploring mountain trails, alpine lakes, and the landscapes waiting beyond the familiar route\./, 'Alpine lake story card must use the selected hiking and exploration copy');
+  assert.doesNotMatch(indexHtml, /STRATEGY &amp; CHESS|64 squares|1940 ELO|3\+2 BLITZ/, 'Alpine lake story card must not retain chess copy');
   assert.match(indexHtml, /Professional Experience<\/h2>\s*<p class="section-subtitle" data-i18n="exp_subtitle">Building reliable full-stack applications through collaborative development, testing, and release delivery\.<\/p>/, 'Professional Experience must include its supporting subtitle');
   assert.doesNotMatch(indexHtml, /projects-filter-bar|Filter projects by specialization|project-filter-btn/, 'Projects section must not render specialization filters');
   assert.equal((indexHtml.match(/<article class="project-card reveal"/g) || []).length, 4, 'Projects section must keep all four project cards visible');
@@ -176,6 +182,9 @@ async function runChecks() {
     const html = await readFile(path.join(root, route, 'index.html'), 'utf8');
     assert.equal((html.match(/<h1[ >]/g) || []).length, 1, `${route}: one h1`);
     assert.match(html, /<meta name="description" content="[^"]+"/, `${route}: description`);
+    assert.doesNotMatch(html, /href="\/(?:assets\/)?resume\.pdf"/, `${route}: resume links must not use a local PDF`);
+    assert(html.includes(`href="${resumeDriveUrl}"`), `${route}: resume link must use the Google Drive folder`);
+    assert(html.includes(`href="${resumeDriveUrl}" target="_blank" rel="noopener noreferrer"`), `${route}: resume link must open securely in a new tab`);
     for (const [, ref] of html.matchAll(/(?:href|src)="([^"]+)"/g)) {
       const url = new URL(ref, `https://portfolio.test${route}`);
       if (url.origin !== 'https://portfolio.test') continue;
