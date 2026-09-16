@@ -3231,12 +3231,461 @@ body {
 .case-layout p, .case-layout li { margin-bottom: 16px; }
 .case-layout ul { padding-left: 24px; }
 .case-layout article a { text-decoration: underline; text-underline-offset: 4px; }
+.architecture-diagram {
+  margin: 4px 0 28px;
+  padding: 20px;
+  border: 1px solid var(--border-medium);
+  border-radius: 10px;
+  background: rgba(250, 249, 245, 0.72);
+}
+.architecture-primary-flow,
+.architecture-flow-track {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+  gap: 8px;
+}
+.architecture-node,
+.architecture-flow-node {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 54px;
+  padding: 10px;
+  border: 1px solid var(--border-medium);
+  border-radius: 7px;
+  background: #fff;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  font-weight: 600;
+  line-height: 1.35;
+  text-align: center;
+}
+.architecture-node-engine {
+  border-color: rgba(255, 92, 57, 0.65);
+  box-shadow: inset 0 0 0 1px rgba(255, 92, 57, 0.12);
+}
+.architecture-node-ai {
+  border-color: rgba(168, 85, 247, 0.65);
+  box-shadow: inset 0 0 0 1px rgba(168, 85, 247, 0.12);
+}
+.architecture-arrow {
+  color: var(--accent-orange);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1rem;
+  font-weight: 700;
+  text-align: center;
+}
+.architecture-secondary-flow {
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-medium);
+}
+/* ==========================================================================
+   JobHelperGuru & YU Bazaar Architecture Diagrams
+   ========================================================================== */
+.architecture-diagram-jhg,
+.architecture-diagram-yub {
+  margin: 4px 0 28px;
+  padding: 28px 20px 24px;
+  border: 1px solid var(--border-medium);
+  border-radius: 10px;
+  background: rgba(250, 249, 245, 0.72);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  overflow-x: auto;
+}
+
+.architecture-tree-svg {
+  width: 100%;
+  max-width: 760px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.concept-accent {
+  font-weight: 600;
+  color: #1e1e24;
+  border-bottom: 1.5px solid rgba(168, 85, 247, 0.45);
+}
+/* Evidence-aware AI Claim Badges */
+.claim-badges-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin: 12px 0 24px;
+}
+.claim-badge-card {
+  padding: 12px 14px;
+  border-radius: 8px;
+  background: #fff;
+  border: 1px solid var(--border-medium);
+}
+.claim-badge-header {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 4px;
+}
+.claim-badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.claim-badge-title {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.claim-badge-caption {
+  font-size: 0.8rem;
+  color: #52525b;
+  margin: 0;
+  line-height: 1.4;
+}
+.claim-badge-supported {
+  border-color: rgba(16, 185, 129, 0.28);
+  background: rgba(16, 185, 129, 0.03);
+}
+.claim-badge-supported .claim-badge-dot {
+  background: #10b981;
+}
+.claim-badge-supported .claim-badge-title {
+  color: #047857;
+}
+.claim-badge-unverified {
+  border-color: rgba(245, 158, 11, 0.28);
+  background: rgba(245, 158, 11, 0.03);
+}
+.claim-badge-unverified .claim-badge-dot {
+  background: #f59e0b;
+}
+.claim-badge-unverified .claim-badge-title {
+  color: #b45309;
+}
+.claim-badge-placeholder {
+  border-color: rgba(168, 85, 247, 0.28);
+  background: rgba(168, 85, 247, 0.03);
+}
+.claim-badge-placeholder .claim-badge-dot {
+  background: #a855f7;
+}
+.claim-badge-placeholder .claim-badge-title {
+  color: #7e22ce;
+}
+.architecture-flow-title {
+  display: block;
+  margin-bottom: 10px;
+  color: #52525b;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-align: center;
+  text-transform: uppercase;
+}
+.architecture-flow-node {
+  min-height: 46px;
+  padding: 8px;
+  font-size: 0.66rem;
+  font-weight: 500;
+}
+
+/* Research Metrics Strip */
+.research-metrics-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin: -4px 0 36px;
+  padding: 18px 20px;
+  border: 1px solid var(--border-medium);
+  border-radius: 10px;
+  background: rgba(250, 249, 245, 0.72);
+}
+.research-metric-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.research-metric-num {
+  font-family: 'Baufra', Arial, sans-serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--woodsmoke);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+.research-metric-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: #52525b;
+  text-transform: uppercase;
+  margin-top: 5px;
+}
+
+/* Dataset Source & Provenance */
+.research-provenance {
+  font-size: 0.85rem;
+  color: #71717a;
+  margin: -6px 0 20px;
+  line-height: 1.45;
+}
+.research-provenance a {
+  color: #52525b;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s ease;
+}
+.research-provenance a:hover {
+  color: var(--accent-orange);
+}
+
+/* Methodology Pipeline Visual */
+.methodology-pipeline {
+  margin: 4px 0 28px;
+  padding: 24px 20px 22px;
+  border: 1px solid var(--border-medium);
+  border-radius: 10px;
+  background: rgba(250, 249, 245, 0.72);
+}
+.methodology-pipeline-eyebrow {
+  display: block;
+  margin-bottom: 16px;
+  color: #52525b;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-align: center;
+  text-transform: uppercase;
+}
+.methodology-flow {
+  max-width: 680px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+.methodology-step {
+  width: 100%;
+  max-width: 440px;
+}
+.methodology-step-layers {
+  max-width: 680px;
+}
+.methodology-box {
+  background: #fff;
+  border: 1px solid var(--border-medium);
+  border-radius: 8px;
+  padding: 10px 14px;
+  text-align: center;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+}
+.methodology-box-layers {
+  padding: 12px 14px;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid var(--border-medium);
+}
+.methodology-layers-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+  gap: 8px;
+  margin-top: 6px;
+}
+.methodology-layer-card {
+  background: rgba(250, 249, 245, 0.65);
+  border: 1px solid rgba(22, 22, 22, 0.1);
+  border-radius: 6px;
+  padding: 8px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  min-height: 72px;
+  justify-content: center;
+}
+.methodology-layer-culmination {
+  border-color: rgba(255, 92, 57, 0.4);
+  background: rgba(255, 92, 57, 0.03);
+}
+.methodology-layer-badge {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: #71717a;
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+.methodology-layer-culmination .methodology-layer-badge {
+  color: var(--accent-orange);
+}
+.methodology-layer-title {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #18181b;
+  line-height: 1.25;
+}
+.methodology-layer-sub {
+  font-size: 0.71rem;
+  color: #52525b;
+  margin-top: 2px;
+  line-height: 1.3;
+}
+.methodology-layer-arrow {
+  color: var(--accent-orange);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.1rem;
+  font-weight: 700;
+  user-select: none;
+  flex-shrink: 0;
+}
+.methodology-box-data {
+  border-color: rgba(255, 92, 57, 0.45);
+}
+.methodology-box-algo {
+  border-color: rgba(168, 85, 247, 0.45);
+}
+.methodology-box-eval {
+  border-color: rgba(16, 185, 129, 0.45);
+}
+.methodology-box-ui {
+  border-color: rgba(59, 130, 246, 0.45);
+}
+.methodology-step-badge {
+  display: inline-block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #71717a;
+  margin-bottom: 3px;
+}
+.methodology-box-title {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #18181b;
+  line-height: 1.3;
+}
+.methodology-box-sub {
+  font-size: 0.76rem;
+  color: #52525b;
+  margin-top: 2px;
+}
+.methodology-arrow {
+  color: var(--accent-orange);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.15rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+/* Research Findings Callout */
+.research-findings-callout {
+  margin: 18px 0 22px;
+  padding: 18px 20px 16px;
+  border: 1px solid var(--border-medium);
+  border-radius: 10px;
+  background: rgba(250, 249, 245, 0.72);
+}
+.research-finding-header {
+  margin-bottom: 12px;
+}
+.research-finding-eyebrow {
+  display: block;
+  color: #52525b;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.research-finding-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.research-finding-card {
+  background: #fff;
+  border: 1px solid var(--border-medium);
+  border-radius: 8px;
+  padding: 12px 14px;
+}
+.research-finding-metric-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #71717a;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.research-finding-metric-val {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #18181b;
+  line-height: 1.2;
+}
+.research-finding-caption {
+  font-size: 0.76rem;
+  color: #52525b;
+  margin-top: 4px;
+  line-height: 1.35;
+}
+.research-finding-summary {
+  font-size: 0.82rem;
+  color: #52525b;
+  margin: 0;
+  line-height: 1.45;
+  font-style: italic;
+}
+
 .case-next { display: flex; justify-content: space-between; gap: 24px; padding-top: 24px; border-top: 1px solid var(--border-medium); }
 @media (max-width: 767px) {
   .case-layout { grid-template-columns: minmax(0, 1fr); gap: 32px; }
   .case-toc { position: static; padding-bottom: 24px; border-bottom: 1px solid var(--border-medium); }
   .case-header { font-size: .85rem; }
   .case-next { flex-direction: column; }
+  .architecture-primary-flow,
+  .architecture-flow-track { grid-template-columns: minmax(0, 1fr); }
+  .architecture-subsystems-row { grid-template-columns: minmax(0, 1fr); gap: 14px; }
+  .claim-badges-grid { grid-template-columns: minmax(0, 1fr); gap: 10px; }
+  .research-metrics-strip { grid-template-columns: repeat(2, 1fr); gap: 16px 12px; margin-bottom: 24px; }
+  .research-finding-grid { grid-template-columns: minmax(0, 1fr); gap: 10px; }
+  .methodology-layers-row { grid-template-columns: minmax(0, 1fr); gap: 6px; }
+  .methodology-layer-card { min-height: auto; padding: 8px 10px; }
+  .methodology-layer-arrow { transform: rotate(90deg); padding: 2px 0; }
+  .architecture-arrow { transform: rotate(90deg); }
+  .architecture-diagram,
+  .methodology-pipeline,
+  .research-findings-callout { padding: 16px; }
   .hero-actions { justify-content: center; }
   .experience-date-badge { white-space: normal; }
 }

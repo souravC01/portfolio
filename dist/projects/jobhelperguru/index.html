@@ -1,14 +1,131 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>JobHelperGuru — Sourav Chandhok</title><meta name="description" content="A job-search workspace built with Python, FastAPI, and React that analyzes postings, matches résumés, suggests evidence-aware bullets, and features an offline heuristic fallback.">
+  <title>JobHelperGuru — Sourav Chandhok</title><meta name="description" content="JobHelperGuru is a full-stack job-search workspace built with Python, FastAPI, and React. It analyzes job postings, compares multiple résumés, generates evidence-aware bullet suggestions, tracks applications, and preserves core functionality through an offline heuristic fallback.">
   <link rel="icon" href="/favicon.svg"><link rel="stylesheet" href="/style.css"></head><body>
   <a class="skip-to-content" href="#main">Skip to content</a>
   <header class="case-header container"><a href="/">Sourav Chandhok<span aria-hidden="true">.</span></a><a href="/#projects">All projects →</a></header>
-  <main id="main" class="case-main container"><div class="case-intro"><p class="section-eyebrow">Applied AI / Full-stack</p>
-  <h1>JobHelperGuru</h1><p class="case-summary">A job-search workspace built with Python, FastAPI, and React that analyzes postings, matches résumés, suggests evidence-aware bullets, and features an offline heuristic fallback.</p><div class="project-tags"><span>Python</span><span>FastAPI</span><span>React</span><span>OpenAI API</span><span>pytest</span><span>PostgreSQL</span></div><div class="project-actions"><a href="https://github.com/souravC01/JobHelperGuru" target="_blank" rel="noopener noreferrer">GitHub</a><a href="https://jobhelperguru.onrender.com/" target="_blank" rel="noopener noreferrer">Live demo ↗</a></div>
+  <main id="main" class="case-main container"><div class="case-intro"><p class="section-eyebrow">APPLIED AI / FULL-STACK</p>
+  <h1>JobHelperGuru</h1><p class="case-summary">JobHelperGuru is a full-stack job-search workspace built with Python, FastAPI, and React. It analyzes job postings, compares multiple résumés, generates evidence-aware bullet suggestions, tracks applications, and preserves core functionality through an offline heuristic fallback.</p><div class="project-tags"><span>Python</span><span>FastAPI</span><span>React</span><span>OpenAI API</span><span>pytest</span><span>PostgreSQL</span></div><div class="project-actions"><a href="https://github.com/souravC01/JobHelperGuru" target="_blank" rel="noopener noreferrer">GitHub</a><a href="https://jobhelperguru.onrender.com/" target="_blank" rel="noopener noreferrer">Live demo ↗</a></div>
   <p class="case-note">Live demos may take a moment to wake up. Case studies and screenshots remain available here.</p></div>
   <figure class="case-screenshot"><img src="/assets/images/jobhelper-live.jpg" alt="JobHelperGuru application screenshot"><figcaption>JobHelperGuru · Interactive web application</figcaption></figure>
-  <div class="case-layout"><nav class="case-toc" aria-label="Case study contents"><a href="#problem">The problem</a><a href="#role">My contribution</a><a href="#approach">A connected application workflow</a><a href="#architecture">Architecture</a><a href="#challenges">Useful suggestions, grounded claims</a><a href="#results">Result and scope</a><a href="#learning">What the project taught me</a></nav>
-  <article><section id="problem"><h2>The problem</h2><p>Job applications involve repeated context switching: reading a posting, comparing it with several résumés, tailoring the wording, and remembering what was submitted. JobHelperGuru brings those steps into a shared workspace.</p></section><section id="role"><h2>My contribution</h2><p>I built the React and Python/FastAPI application, provider-independent LLM integration, résumé-matching workflow, and supporting authentication, document storage, and application tracking architecture.</p></section><section id="approach"><h2>A connected application workflow</h2><p>Users paste a job description or submit a posting URL, inspect the extracted qualifications, compare stored résumés, and revise individual bullets before tracking the application.</p><p>Cloud and local models use an OpenAI-compatible interface. An offline heuristic fallback supports pasted-job analysis and keyword matching even without an external model key.</p></section><section id="architecture"><h2>Architecture</h2><ul><li><strong>React:</strong> job analysis, résumé inspection, settings, and table or Kanban application tracking.</li><li><strong>FastAPI:</strong> application endpoints, authenticated workflows, and structured Pydantic response models.</li><li><strong>AI engine & Offline fallback:</strong> structured job analysis, résumé ranking, and claim-aware bullet suggestions, with an offline heuristic fallback to preserve core functionality.</li><li><strong>PostgreSQL and Cloudflare R2:</strong> application records and résumé document storage, with local development alternatives.</li><li><strong>pytest Automated Testing:</strong> comprehensive test suite verifying API routes, authentication, data processing, and application logic.</li><li><strong>openpyxl:</strong> automated spreadsheet exports and application tracking workflows.</li></ul></section><section id="challenges"><h2>Useful suggestions, grounded claims</h2><p>The most important constraint is avoiding résumé suggestions that silently invent experience. Bullet suggestions distinguish supported claims from unverified skills and metric placeholders. The user remains responsible for reviewing every suggested statement.</p><p>Model responses and scraped job pages are variable inputs. Parsing and fallback paths keep the workflow usable when a provider response cannot be interpreted or no model is configured.</p></section><section id="results"><h2>Result and scope</h2><p>The project combines job analysis, multi-résumé matching, bullet revision, application tracking, and Excel export in one application. It demonstrates applied AI integrated with ordinary product workflows and persistent user data.</p><p>Résumé match percentages are application heuristics, not validated hiring predictions or guarantees of compatibility with an employer’s ATS. AI suggestions require review, and URL ingestion depends on source-site accessibility.</p></section><section id="learning"><h2>What the project taught me</h2><p>AI features need explicit contracts, failure paths, and clear distinctions between evidence and suggestions. The fallback experience is part of the product, and generated text is most useful when its assumptions are visible.</p></section>
+  <div class="case-layout"><nav class="case-toc" aria-label="Case study contents"><a href="#problem">The problem</a><a href="#role">What I built</a><a href="#approach">Application workflow</a><a href="#architecture">Architecture</a><a href="#challenges">Evidence-aware AI</a><a href="#results">Result and scope</a><a href="#learning">What the project taught me</a></nav>
+  <article><section id="problem"><h2>The problem</h2><p>Job applications involve repeated context switching: reading a posting, identifying requirements, comparing it against different résumés, tailoring the wording, and remembering what was submitted.</p><p>JobHelperGuru brings those steps into one workspace so job analysis, résumé matching, tailoring, and <span class="concept-accent">application tracking</span> share the same context.</p></section><section id="role"><h2>What I built</h2><p>I designed and built the React frontend, Python/FastAPI backend, OpenAI-compatible model integration, <span class="concept-accent">multi-résumé matching</span> workflow, and <span class="concept-accent">application tracking</span> system. The project also includes authentication, persistent application data, résumé document storage, Excel export, and an <span class="concept-accent">offline heuristic fallback</span> path for core job-analysis features.</p></section><section id="approach"><h2>Application workflow</h2><p>Users can paste a job description or submit a supported job-posting URL, review the extracted qualifications and ATS keywords, compare stored résumés, revise individual bullets, and then track the application without leaving the workspace.</p><p>Cloud and local models use an OpenAI-compatible interface. When no model is configured, an <span class="concept-accent">offline heuristic fallback</span> still supports pasted-job analysis and keyword matching.</p></section><section id="architecture"><h2>Architecture</h2><figure class="architecture-diagram architecture-diagram-jhg" aria-label="JobHelperGuru application architecture and orchestration flow">
+  <svg class="architecture-tree-svg" viewBox="0 0 780 480" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="JobHelperGuru application architecture diagram">
+    <!-- Level 1: Client Flow -->
+    <g class="architecture-client-flow">
+      <!-- React UI -->
+      <rect x="330" y="10" width="200" height="42" rx="6" fill="#ffffff" stroke="rgba(22, 22, 22, 0.16)" stroke-width="1.2" filter="drop-shadow(0 1px 2px rgba(0,0,0,0.03))" />
+      <text x="430" y="36" font-family="'JetBrains Mono', monospace" font-size="13" font-weight="700" fill="#18181b" text-anchor="middle">React UI</text>
+
+      <!-- Connector 1 -> 2 -->
+      <line x1="430" y1="52" x2="430" y2="72" stroke="#a1a1aa" stroke-width="1.5" />
+      <polygon points="426,72 434,72 430,78" fill="#ff5c39" />
+
+      <!-- Level 2: FastAPI API (orchestration layer) -->
+      <rect x="305" y="80" width="250" height="54" rx="6" fill="#ffffff" stroke="rgba(168, 85, 247, 0.6)" stroke-width="1.3" filter="drop-shadow(0 1px 3px rgba(0,0,0,0.04))" />
+      <text x="430" y="103" font-family="'JetBrains Mono', monospace" font-size="13" font-weight="700" fill="#18181b" text-anchor="middle">FastAPI API</text>
+      <text x="430" y="122" font-family="'JetBrains Mono', monospace" font-size="11" fill="#52525b" text-anchor="middle">orchestration layer</text>
+    </g>
+
+    <!-- 3-Way Fork Connector (FastAPI -> Subsystems) -->
+    <g class="arch-connector-3">
+      <!-- Stem down from FastAPI API -->
+      <line x1="430" y1="134" x2="430" y2="152" stroke="#a1a1aa" stroke-width="1.5" />
+      <!-- Horizontal bar connecting Col 1, Col 2, Col 3 -->
+      <line x1="200" y1="152" x2="660" y2="152" stroke="#a1a1aa" stroke-width="1.5" />
+      <!-- Drop to AI / Matching Engine -->
+      <line x1="200" y1="152" x2="200" y2="168" stroke="#a1a1aa" stroke-width="1.5" />
+      <polygon points="196,168 204,168 200,174" fill="#ff5c39" />
+      <!-- Drop to PostgreSQL -->
+      <line x1="430" y1="152" x2="430" y2="168" stroke="#a1a1aa" stroke-width="1.5" />
+      <polygon points="426,168 434,168 430,174" fill="#ff5c39" />
+      <!-- Drop to Cloudflare R2 -->
+      <line x1="660" y1="152" x2="660" y2="168" stroke="#a1a1aa" stroke-width="1.5" />
+      <polygon points="656,168 664,168 660,174" fill="#ff5c39" />
+    </g>
+
+    <!-- Level 3: Three Subsystems -->
+    <g class="architecture-subsystems-row">
+      <!-- Col 1: AI / Matching Engine -->
+      <g class="arch-box-ai">
+        <rect x="100" y="176" width="200" height="120" rx="6" fill="#ffffff" stroke="rgba(168, 85, 247, 0.45)" stroke-width="1.2" filter="drop-shadow(0 1px 2px rgba(0,0,0,0.03))" />
+        <text x="200" y="200" font-family="'JetBrains Mono', monospace" font-size="12.5" font-weight="700" fill="#18181b" text-anchor="middle">AI / Matching Engine</text>
+        <text x="200" y="226" font-family="'JetBrains Mono', monospace" font-size="11" fill="#52525b" text-anchor="middle">Job analysis</text>
+        <text x="200" y="248" font-family="'JetBrains Mono', monospace" font-size="11" fill="#52525b" text-anchor="middle">Résumé ranking</text>
+        <text x="200" y="270" font-family="'JetBrains Mono', monospace" font-size="11" fill="#52525b" text-anchor="middle">Bullet suggestions</text>
+      </g>
+
+      <!-- Col 2: PostgreSQL -->
+      <g class="arch-box-db">
+        <rect x="330" y="176" width="200" height="120" rx="6" fill="#ffffff" stroke="rgba(22, 22, 22, 0.16)" stroke-width="1.2" filter="drop-shadow(0 1px 2px rgba(0,0,0,0.03))" />
+        <text x="430" y="204" font-family="'JetBrains Mono', monospace" font-size="12.5" font-weight="700" fill="#18181b" text-anchor="middle">PostgreSQL</text>
+        <text x="430" y="236" font-family="'JetBrains Mono', monospace" font-size="11" fill="#52525b" text-anchor="middle">Applications &amp;</text>
+        <text x="430" y="256" font-family="'JetBrains Mono', monospace" font-size="11" fill="#52525b" text-anchor="middle">tracking data</text>
+      </g>
+
+      <!-- Col 3: Cloudflare R2 -->
+      <g class="arch-box-storage">
+        <rect x="560" y="176" width="200" height="120" rx="6" fill="#ffffff" stroke="rgba(22, 22, 22, 0.16)" stroke-width="1.2" filter="drop-shadow(0 1px 2px rgba(0,0,0,0.03))" />
+        <text x="660" y="204" font-family="'JetBrains Mono', monospace" font-size="12.5" font-weight="700" fill="#18181b" text-anchor="middle">Cloudflare R2</text>
+        <text x="660" y="236" font-family="'JetBrains Mono', monospace" font-size="11" fill="#52525b" text-anchor="middle">Résumé document</text>
+        <text x="660" y="256" font-family="'JetBrains Mono', monospace" font-size="11" fill="#52525b" text-anchor="middle">storage</text>
+      </g>
+    </g>
+
+    <!-- 2-Way Fork Connector (AI Engine -> Children) -->
+    <g class="arch-connector-2">
+      <!-- Stem down from AI Engine center (x=200, y=296) -->
+      <line x1="200" y1="296" x2="200" y2="314" stroke="#a1a1aa" stroke-width="1.5" />
+      <!-- Horizontal bar: from Child 1 center (x=120) to Child 2 center (x=280) -->
+      <line x1="120" y1="314" x2="280" y2="314" stroke="#a1a1aa" stroke-width="1.5" />
+      <!-- Drop to Child 1 -->
+      <line x1="120" y1="314" x2="120" y2="328" stroke="#a1a1aa" stroke-width="1.5" />
+      <polygon points="116,328 124,328 120,334" fill="#ff5c39" />
+      <!-- Drop to Child 2 -->
+      <line x1="280" y1="314" x2="280" y2="328" stroke="#a1a1aa" stroke-width="1.5" />
+      <polygon points="276,328 284,328 280,334" fill="#ff5c39" />
+    </g>
+
+    <!-- Level 4: Two Children under AI Engine -->
+    <g class="architecture-children-tree">
+      <!-- Child 1: OpenAI-compatible provider -->
+      <g class="arch-child-box">
+        <rect x="42" y="336" width="156" height="92" rx="6" fill="#ffffff" stroke="rgba(22, 22, 22, 0.16)" stroke-width="1.2" filter="drop-shadow(0 1px 2px rgba(0,0,0,0.03))" />
+        <text x="120" y="360" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700" fill="#18181b" text-anchor="middle">OpenAI-compatible</text>
+        <text x="120" y="376" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700" fill="#18181b" text-anchor="middle">provider</text>
+        <text x="120" y="400" font-family="'JetBrains Mono', monospace" font-size="9.5" fill="#52525b" text-anchor="middle">Cloud / local</text>
+        <text x="120" y="415" font-family="'JetBrains Mono', monospace" font-size="9.5" fill="#52525b" text-anchor="middle">model endpoints</text>
+      </g>
+
+      <!-- Child 2: Offline heuristic fallback -->
+      <g class="arch-child-box">
+        <rect x="202" y="336" width="156" height="92" rx="6" fill="#ffffff" stroke="rgba(22, 22, 22, 0.16)" stroke-width="1.2" filter="drop-shadow(0 1px 2px rgba(0,0,0,0.03))" />
+        <text x="280" y="360" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700" fill="#18181b" text-anchor="middle">Offline heuristic</text>
+        <text x="280" y="376" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700" fill="#18181b" text-anchor="middle">fallback</text>
+        <text x="280" y="400" font-family="'JetBrains Mono', monospace" font-size="9.5" fill="#52525b" text-anchor="middle">Zero-config parsing</text>
+        <text x="280" y="415" font-family="'JetBrains Mono', monospace" font-size="9.5" fill="#52525b" text-anchor="middle">&amp; keyword matching</text>
+      </g>
+    </g>
+  </svg>
+  <div class="sr-only">
+    <div class="architecture-client-flow">
+      <span>React UI</span>
+      <span>FastAPI API</span>
+    </div>
+    <div class="architecture-subsystems-row">
+      <span>AI / Matching Engine</span>
+      <span>PostgreSQL</span>
+      <span>Applications &amp; tracking data</span>
+      <span>Cloudflare R2</span>
+      <span>Résumé document storage</span>
+    </div>
+    <div class="architecture-children-row">
+      <span>OpenAI-compatible provider</span>
+      <span>Cloud / local model endpoints</span>
+      <span>Offline heuristic fallback</span>
+      <span>Zero-config parsing &amp; keyword matching</span>
+    </div>
+  </div>
+</figure><ul><li><strong>React:</strong> job analysis, résumé inspection, settings, and table or Kanban <span class="concept-accent">application tracking</span>.</li><li><strong>FastAPI:</strong> authenticated application endpoints, job-analysis workflows, résumé matching, tracking operations, and structured Pydantic response models.</li><li><strong>AI engine + offline fallback:</strong> structured job analysis, résumé ranking, and <span class="concept-accent">evidence-aware suggestions</span>, with a heuristic path that preserves core functionality when no model is configured.</li><li><strong>PostgreSQL + Cloudflare R2:</strong> persistent application records and résumé document storage, with local development alternatives.</li><li><strong>pytest:</strong> automated testing across API routes, authentication, parsing, data processing, and application logic.</li><li><strong>openpyxl:</strong> spreadsheet export for tracked applications.</li></ul></section><section id="challenges"><h2>Evidence-aware AI</h2><div class="claim-badges-grid"><div class="claim-badge-card claim-badge-supported"><div class="claim-badge-header"><span class="claim-badge-dot"></span><span class="claim-badge-title">SUPPORTED CLAIM</span></div><p class="claim-badge-caption">Backed by résumé or project evidence</p></div><div class="claim-badge-card claim-badge-unverified"><div class="claim-badge-header"><span class="claim-badge-dot"></span><span class="claim-badge-title">UNVERIFIED SKILL</span></div><p class="claim-badge-caption">Requires user confirmation before use</p></div><div class="claim-badge-card claim-badge-placeholder"><div class="claim-badge-header"><span class="claim-badge-dot"></span><span class="claim-badge-title">METRIC PLACEHOLDER</span></div><p class="claim-badge-caption">Uses placeholders until a real value is supplied</p></div></div><p>The main design constraint was preventing AI-generated résumé suggestions from silently becoming fabricated experience.</p><p>JobHelperGuru separates supported claims from unverified skills and metric placeholders. Missing keywords can still be surfaced and suggested as hypothetical rewrites, but assumptions remain visible so the user can confirm them before using the content.</p><p>Model responses and scraped job pages are variable inputs, so parsing, validation, and fallback paths keep the workflow usable when a provider response cannot be interpreted or no external model is configured.</p></section><section id="results"><h2>Result and scope</h2><p>JobHelperGuru combines job analysis, <span class="concept-accent">multi-résumé matching</span>, bullet revision, <span class="concept-accent">application tracking</span>, and spreadsheet export in one application. The project demonstrates applied AI embedded inside ordinary product workflows rather than treated as a standalone chatbot.</p><p>Résumé match percentages are application heuristics, not validated hiring predictions or guarantees of ATS compatibility. AI-generated suggestions require user review, and URL ingestion depends on source-site accessibility.</p></section><section id="learning"><h2>What the project taught me</h2><p>The biggest lesson was that AI features need explicit contracts, visible assumptions, and reliable failure paths. Generated text is most useful when the application makes clear which claims are supported, which require confirmation, and what happens when the model is unavailable.</p><p>The project also reinforced the value of schema-constrained responses, fallback logic, persistent workflow state, and designing AI features as part of a complete product rather than as isolated prompts.</p></section>
   <nav class="case-next" aria-label="More projects"><a href="/#projects">All projects</a><a href="/projects/yu-bazaar/">Next: YU Bazaar →</a></nav></article></div></main>
   <section id="contact" class="section-wrapper contact-section"><div class="container">
   <p class="section-eyebrow">LET'S CONNECT</p>

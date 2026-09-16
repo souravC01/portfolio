@@ -99,7 +99,7 @@ export function caseStudy(project, index) {
   <main id="main" class="case-main container"><div class="case-intro"><p class="section-eyebrow">${escape(project.category)}</p>
   <h1>${escape(project.name)}</h1><p class="case-summary">${escape(project.summary)}</p>${tags(project)}${links(project)}
   <p class="case-note">Live demos may take a moment to wake up. Case studies and screenshots remain available here.</p></div>
-  <figure class="case-screenshot"><img src="${screenshots[project.slug]}" alt="${escape(project.name)} ${project.slug === 'toronto-airbnb' ? 'research community map' : 'application screenshot'}"><figcaption>${escape(project.name)} · ${escape(project.format)}</figcaption></figure>
+  <figure class="case-screenshot"><img src="${screenshots[project.slug]}" alt="${escape(project.name)} ${project.slug === 'toronto-airbnb' ? 'research community map' : 'application screenshot'}"><figcaption>${escape(project.name)} · ${escape(project.format)}</figcaption></figure>${project.metricsStrip ? `\n  ${project.metricsStrip}` : ''}
   <div class="case-layout"><nav class="case-toc" aria-label="Case study contents">${project.sections.map(section => `<a href="#${section.id}">${escape(section.title)}</a>`).join('')}</nav>
   <article>${project.sections.map(section => `<section id="${section.id}"><h2>${escape(section.title)}</h2>${section.html}</section>`).join('')}
   <nav class="case-next" aria-label="More projects"><a href="/#projects">All projects</a><a href="/projects/${next.slug}/">Next: ${escape(next.name)} →</a></nav></article></div></main>

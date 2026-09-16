@@ -70,7 +70,7 @@
       // Projects
       proj_1_desc: 'AI-powered job application workspace using React and Python/FastAPI that analyzes postings, matches résumés, suggests evidence-aware bullet revisions, and features an offline heuristic fallback when external models are unavailable. Verified with automated pytest suites.',
       proj_2_desc: 'Full-stack access-impact simulator built with Java 21, Spring Boot, and React. Evaluates permission changes using deterministic domain models, asynchronous Kafka microservices, and Testcontainers integration tests against real PostgreSQL instances.',
-      proj_3_desc: 'Modernized Java campus marketplace for York University students featuring Spring Security, OTP verification, RabbitMQ asynchronous messaging queue, and containerized deployment with Kubernetes.',
+      proj_3_desc: 'A modernized Java campus marketplace for York University students featuring Spring Security, OTP verification, persistent PostgreSQL storage, cloud-hosted listing images, and automated CI/CD.',
       typewriter_words: ['Full-Stack Developer', 'Java Backend Engineer', 'AI Application Developer', 'Software Engineer'],
       // AFK / Hobbies
       afk_eyebrow: 'OUTSIDE THE CODE',

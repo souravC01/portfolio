@@ -1,14 +1,117 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Toronto Airbnb Market Network — Sourav Chandhok</title><meta name="description" content="Do rental markets follow neighbourhood boundaries? An interactive network analysis and research case study of 15,809 Toronto Airbnb listings with Louvain/Leiden community detection.">
+  <title>Toronto Airbnb Market Network — Sourav Chandhok</title><meta name="description" content="Do Toronto’s Airbnb market segments follow official neighbourhood boundaries? An interactive network analysis and research case study of 15,809 Toronto Airbnb listings using Louvain and Leiden community detection.">
   <link rel="icon" href="/favicon.svg"><link rel="stylesheet" href="/style.css"></head><body>
   <a class="skip-to-content" href="#main">Skip to content</a>
   <header class="case-header container"><a href="/">Sourav Chandhok<span aria-hidden="true">.</span></a><a href="/#projects">All projects →</a></header>
   <main id="main" class="case-main container"><div class="case-intro"><p class="section-eyebrow">DATA ANALYTICS / NETWORK SCIENCE</p>
-  <h1>Toronto Airbnb Market Network</h1><p class="case-summary">Do rental markets follow neighbourhood boundaries? An interactive network analysis and research case study of 15,809 Toronto Airbnb listings with Louvain/Leiden community detection.</p><div class="project-tags"><span>Python</span><span>React</span><span>TypeScript</span><span>Network Science</span><span>Data Analysis</span></div><div class="project-actions"><a href="https://github.com/souravC01/toronto-airbnb-market-network" target="_blank" rel="noopener noreferrer">GitHub</a><a href="https://toronto-airbnb-market-network.vercel.app/" target="_blank" rel="noopener noreferrer">Live demo ↗</a></div>
+  <h1>Toronto Airbnb Market Network</h1><p class="case-summary">Do Toronto’s Airbnb market segments follow official neighbourhood boundaries? An interactive network analysis and research case study of 15,809 Toronto Airbnb listings using Louvain and Leiden community detection.</p><div class="project-tags"><span>Python</span><span>React</span><span>TypeScript</span><span>Network Science</span><span>Data Analysis</span></div><div class="project-actions"><a href="https://github.com/souravC01/toronto-airbnb-market-network" target="_blank" rel="noopener noreferrer">GitHub</a><a href="https://toronto-airbnb-market-network.vercel.app/" target="_blank" rel="noopener noreferrer">Live demo ↗</a></div>
   <p class="case-note">Live demos may take a moment to wake up. Case studies and screenshots remain available here.</p></div>
   <figure class="case-screenshot"><img src="/assets/airbnb-network.png" alt="Toronto Airbnb Market Network research community map"><figcaption>Toronto Airbnb Market Network · Research &amp; interactive data exploration</figcaption></figure>
-  <div class="case-layout"><nav class="case-toc" aria-label="Case study contents"><a href="#problem">The research question</a><a href="#role">My portfolio contribution</a><a href="#approach">Build the network in layers</a><a href="#architecture">From analysis to interactive evidence</a><a href="#challenges">Testing the interpretation</a><a href="#results">Findings and limitations</a><a href="#learning">What the project taught me</a></nav>
-  <article><section id="problem"><h2>The research question</h2><p>Do Toronto’s Airbnb market segments follow official neighbourhood boundaries? Geographic proximity is only one relationship: listings can also share hosts or similar characteristics.</p><p>The analysis models 15,809 listings from a November 2025 Toronto snapshot as a weighted network and asks whether detected communities add useful information to price prediction.</p></section><section id="role"><h2>My portfolio contribution</h2><p>I built the responsive React and TypeScript presentation, a reproducible Python pipeline for application data, and automated checks that keep displayed metrics synchronized with canonical analysis outputs.</p><p>This is an independently maintained portfolio edition of a York University EECS 4414 research project. The original final report retains its original submission authorship; this page does not claim sole authorship of that course report.</p></section><section id="approach"><h2>Build the network in layers</h2><ul><li><strong>Graph A:</strong> geographic proximity within 500 metres.</li><li><strong>Graph B:</strong> adds shared-host ownership.</li><li><strong>Graph C:</strong> adds listing-attribute similarity.</li></ul><p>Louvain and Leiden community detection are compared against official neighbourhoods. Price is excluded from edge construction. A paired ridge-regression comparison then tests whether community membership adds information beyond the baseline price model.</p></section><section id="architecture"><h2>From analysis to interactive evidence</h2><p>Python experiments produce canonical tables and figures. A validation step checks those outputs, and the React presentation exposes graph layers, community algorithms, validation schemes, and sensitivity results.</p><p>The presentation is exported as static HTML, with browser-side interactivity. GitHub Actions checks the application and analytical artifacts so changes to the research do not silently leave the website out of sync.</p></section><section id="challenges"><h2>Testing the interpretation</h2><p>Communities depend on modeling choices. The project uses seven parameter configurations and random, host-grouped, and spatial-block five-fold validation to examine how stable the results are.</p><p>Separating exploratory segmentation from predictive usefulness is essential: a visually interesting map does not establish that its labels improve a predictive model.</p></section><section id="results"><h2>Findings and limitations</h2><p>Adding ownership and similarity links connects geographic clusters into broader market segments. Spatial-only communities align most closely with official neighbourhoods, while the full graph spans those administrative boundaries.</p><p>Community membership increases mean raw R² by only 0.0016–0.0024 across validation schemes; adjusted R² declines. The study therefore does not claim a material price-prediction improvement.</p><p>Validation is transductive: communities are learned from the full price-free graph before price folds are created. It is not a deployment test on completely unseen listings. The dataset is one time snapshot, and exact community membership changes with parameters.</p></section><section id="learning"><h2>What the project taught me</h2><p>A strong research presentation makes its uncertainty inspectable. Reproducible artifacts, explicit validation assumptions, and honest reporting make the findings more useful than a claim of improvement unsupported by the results.</p><p><a href="https://toronto-airbnb-market-network.vercel.app/report/EECS4414-Airbnb-Network-Analysis-Final-Report.pdf">Read the original course report ↗</a> · <a href="https://github.com/souravC01/toronto-airbnb-market-network/blob/main/docs/ROBUSTNESS.md">Read the robustness methodology ↗</a></p></section>
+  <div class="research-metrics-strip" aria-label="Research project key metrics">
+  <div class="research-metric-item">
+    <div class="research-metric-num">15,809</div>
+    <div class="research-metric-label">LISTINGS</div>
+  </div>
+  <div class="research-metric-item">
+    <div class="research-metric-num">3</div>
+    <div class="research-metric-label">NETWORK LAYERS</div>
+  </div>
+  <div class="research-metric-item">
+    <div class="research-metric-num">7</div>
+    <div class="research-metric-label">PARAMETER CONFIGURATIONS</div>
+  </div>
+  <div class="research-metric-item">
+    <div class="research-metric-num">3</div>
+    <div class="research-metric-label">VALIDATION SCHEMES</div>
+  </div>
+</div>
+  <div class="case-layout"><nav class="case-toc" aria-label="Case study contents"><a href="#problem">The research question</a><a href="#role">My portfolio contribution</a><a href="#approach">Build the network in layers</a><a href="#architecture">From analysis to reproducible evidence</a><a href="#challenges">Testing the interpretation</a><a href="#results">Findings and limitations</a><a href="#learning">What the project taught me</a></nav>
+  <article><section id="problem"><h2>The research question</h2><p class="research-provenance">Dataset source: <a href="https://insideairbnb.com/get-the-data/" target="_blank" rel="noopener noreferrer">Inside Airbnb</a> — Toronto, November 2025 snapshot</p><p>Do Toronto’s Airbnb market segments follow official neighbourhood boundaries? Geographic proximity is only one relationship: listings can also share hosts or similar characteristics.</p><p>The analysis models 15,809 listings from a November 2025 Toronto snapshot as a weighted network and asks whether detected communities add useful information to price prediction.</p></section><section id="role"><h2>My portfolio contribution</h2><p>I built the responsive React and TypeScript presentation, a reproducible Python pipeline for analytical data and research artifacts, and automated checks that keep displayed metrics synchronized with canonical analysis outputs.</p><p>This is an independently maintained portfolio edition of a York University EECS 4414 research project. The original final report retains its original submission authorship; this page does not claim sole authorship of that course report.</p></section><section id="approach"><h2>Build the network in layers</h2><figure class="methodology-pipeline" aria-label="Research methodology pipeline flowchart">
+  <span class="methodology-pipeline-eyebrow">RESEARCH METHODOLOGY FLOW</span>
+  <div class="methodology-flow">
+    <div class="methodology-step">
+      <div class="methodology-box methodology-box-data">
+        <span class="methodology-step-badge">RAW DATA</span>
+        <div class="methodology-box-title">Toronto Airbnb Snapshot</div>
+        <div class="methodology-box-sub">15,809 listings</div>
+      </div>
+    </div>
+    <span class="methodology-arrow" aria-hidden="true">↓</span>
+    <div class="methodology-step methodology-step-layers">
+      <div class="methodology-box methodology-box-layers">
+        <span class="methodology-step-badge">LAYERED GRAPH PROGRESSION</span>
+        <div class="methodology-layers-row">
+          <div class="methodology-layer-card">
+            <span class="methodology-layer-badge">LAYER 1</span>
+            <div class="methodology-layer-title">Graph A</div>
+            <div class="methodology-layer-sub">Geographic proximity ≤ 500m</div>
+          </div>
+          <span class="methodology-layer-arrow" aria-hidden="true">→</span>
+          <div class="methodology-layer-card">
+            <span class="methodology-layer-badge">LAYER 2</span>
+            <div class="methodology-layer-title">Graph B</div>
+            <div class="methodology-layer-sub">+ Shared-host ownership</div>
+          </div>
+          <span class="methodology-layer-arrow" aria-hidden="true">→</span>
+          <div class="methodology-layer-card methodology-layer-culmination">
+            <span class="methodology-layer-badge">LAYER 3</span>
+            <div class="methodology-layer-title">Graph C</div>
+            <div class="methodology-layer-sub">+ Listing-attribute similarity</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <span class="methodology-arrow" aria-hidden="true">↓</span>
+    <div class="methodology-step">
+      <div class="methodology-box methodology-box-algo">
+        <span class="methodology-step-badge">COMMUNITY DETECTION</span>
+        <div class="methodology-box-title">Louvain / Leiden</div>
+        <div class="methodology-box-sub">Community Detection</div>
+      </div>
+    </div>
+    <span class="methodology-arrow" aria-hidden="true">↓</span>
+    <div class="methodology-step">
+      <div class="methodology-box">
+        <span class="methodology-step-badge">SPATIAL BENCHMARK</span>
+        <div class="methodology-box-title">Compare with</div>
+        <div class="methodology-box-sub">Official Neighbourhoods</div>
+      </div>
+    </div>
+    <span class="methodology-arrow" aria-hidden="true">↓</span>
+    <div class="methodology-step">
+      <div class="methodology-box methodology-box-eval">
+        <span class="methodology-step-badge">PREDICTIVE EVALUATION</span>
+        <div class="methodology-box-title">Ridge Regression</div>
+        <div class="methodology-box-sub">+ Validation Schemes</div>
+      </div>
+    </div>
+    <span class="methodology-arrow" aria-hidden="true">↓</span>
+    <div class="methodology-step">
+      <div class="methodology-box methodology-box-ui">
+        <span class="methodology-step-badge">RESEARCH ARTIFACT</span>
+        <div class="methodology-box-title">Interactive React</div>
+        <div class="methodology-box-sub">Research Presentation</div>
+      </div>
+    </div>
+  </div>
+</figure><ul><li><strong>Graph A:</strong> geographic proximity within 500 metres.</li><li><strong>Graph B:</strong> adds shared-host ownership.</li><li><strong>Graph C:</strong> adds listing-attribute similarity.</li></ul><p>Louvain and Leiden community detection are compared against official neighbourhoods. Price is excluded from edge construction. A paired ridge-regression comparison then tests whether community membership adds information beyond the baseline price model.</p></section><section id="architecture"><h2>From analysis to reproducible evidence</h2><p>Python experiments produce canonical tables and figures. A validation step checks those outputs, and the React presentation exposes graph layers, community algorithms, validation schemes, and sensitivity results.</p><p>The presentation is exported as static HTML with browser-side interactivity. GitHub Actions checks the application and analytical artifacts so changes to the research do not silently leave the website out of sync.</p></section><section id="challenges"><h2>Testing the interpretation</h2><p>Communities depend on modeling choices. The project uses seven parameter configurations and random, host-grouped, and spatial-block five-fold validation to examine how stable the results are.</p><p>Separating exploratory segmentation from predictive usefulness is essential: a visually interesting map does not establish that its labels improve a predictive model.</p></section><section id="results"><h2>Findings and limitations</h2><p>Adding ownership and similarity links connects geographic clusters into broader market segments. Spatial-only communities align most closely with official neighbourhoods, while the full graph spans those administrative boundaries.</p><div class="research-findings-callout" aria-label="Key empirical findings on price prediction">
+  <div class="research-finding-header">
+    <span class="research-finding-eyebrow">EMPIRICAL COMPARISON · COMMUNITY FEATURE IMPACT</span>
+  </div>
+  <div class="research-finding-grid">
+    <div class="research-finding-card">
+      <div class="research-finding-metric-label">RAW R² GAIN</div>
+      <div class="research-finding-metric-val">+0.0016 to +0.0024</div>
+      <div class="research-finding-caption">Marginal across 5-fold schemes</div>
+    </div>
+    <div class="research-finding-card">
+      <div class="research-finding-metric-label">ADJUSTED R²</div>
+      <div class="research-finding-metric-val">Declined</div>
+      <div class="research-finding-caption">Penalized by model degrees of freedom</div>
+    </div>
+  </div>
+  <p class="research-finding-summary">The empirical comparison does not claim a material price-prediction improvement over baseline features.</p>
+</div><p>Community membership increases mean raw R² by only 0.0016–0.0024 across validation schemes; adjusted R² declines. The study therefore does not claim a material price-prediction improvement.</p><p>Validation is transductive: communities are learned from the full price-free graph before price folds are created. It is not a deployment test on completely unseen listings. The dataset is one time snapshot, and exact community membership changes with parameters.</p></section><section id="learning"><h2>What the project taught me</h2><p>A strong research presentation makes its uncertainty inspectable. Reproducible artifacts, explicit validation assumptions, and honest reporting make the findings more useful than a claim of improvement unsupported by the results.</p><p><a href="https://toronto-airbnb-market-network.vercel.app/report/EECS4414-Airbnb-Network-Analysis-Final-Report.pdf" target="_blank" rel="noopener noreferrer">Read the original course report ↗</a> · <a href="https://github.com/souravC01/toronto-airbnb-market-network/blob/main/docs/ROBUSTNESS.md" target="_blank" rel="noopener noreferrer">Read the robustness methodology ↗</a></p></section>
   <nav class="case-next" aria-label="More projects"><a href="/#projects">All projects</a><a href="/projects/roleimpact/">Next: RoleImpact →</a></nav></article></div></main>
   <section id="contact" class="section-wrapper contact-section"><div class="container">
   <p class="section-eyebrow">LET'S CONNECT</p>
