@@ -26,6 +26,16 @@ async function runChecks() {
   assert.match(indexHtml, /<h2 class="section-title" data-i18n="afk_title">Beyond the Terminal<\/h2>/, 'Personal interests section must use the selected Beyond the Terminal title');
   assert.doesNotMatch(indexHtml, /Beyond the Terminal — AFK/, 'Personal interests title must not retain the AFK suffix');
   assert.match(indexHtml, /Professional Experience<\/h2>\s*<p class="section-subtitle" data-i18n="exp_subtitle">Building reliable full-stack applications through collaborative development, testing, and release delivery\.<\/p>/, 'Professional Experience must include its supporting subtitle');
+  assert.doesNotMatch(indexHtml, /projects-filter-bar|Filter projects by specialization|project-filter-btn/, 'Projects section must not render specialization filters');
+  assert.equal((indexHtml.match(/<article class="project-card reveal"/g) || []).length, 4, 'Projects section must keep all four project cards visible');
+  assert.match(indexHtml, /<p class="section-eyebrow" data-i18n="projects_eyebrow">FEATURED WORK &amp; ENGINEERING EVIDENCE<\/p>/, 'Projects eyebrow must render without the slash prefix');
+  assert.doesNotMatch(indexHtml, /\/\/ FEATURED WORK &amp; ENGINEERING EVIDENCE/, 'Projects eyebrow must not retain the slash prefix');
+  assert.match(indexHtml, /<h3 class="project-title">YU Bazaar<\/h3>[\s\S]*?<div class="project-subtitle">SECURE CAMPUS MARKETPLACE<\/div>/, 'YU Bazaar card must use the secure campus marketplace subtitle');
+  assert.doesNotMatch(indexHtml, /floating-audio-widget|id="bg-audio"/, 'Homepage must not render the floating audio player');
+  assert.doesNotMatch(indexHtml, /class="project-card-date"/, 'Project-card headers must not render dates');
+  assert.match(indexHtml, /<article class="project-card reveal"[^>]*data-slug="roleimpact"[\s\S]*?JAVA \/ SYSTEM DESIGN[\s\S]*?<span class="project-tag">Docker<\/span>/, 'RoleImpact card must use the requested category and Docker tag');
+  assert.match(indexHtml, /<article class="project-card reveal"[^>]*data-slug="yu-bazaar"[\s\S]*?JAVA \/ CLOUD &amp; SECURITY[\s\S]*?<span class="project-tag">PostgreSQL<\/span>/, 'YU Bazaar card must use the requested category and PostgreSQL tag');
+  assert.match(indexHtml, /<article class="project-card reveal"[^>]*data-slug="toronto-airbnb"[\s\S]*?DATA ANALYTICS \/ NETWORK SCIENCE/, 'Toronto Airbnb card must use the requested category');
 
   // The first experience pillar uses the shared metric-callout pattern.
   const firstExperiencePillar = indexHtml.match(/<!-- Pillar 1:[\s\S]*?<div class="exp-pillar">([\s\S]*?)<!-- Pillar 2:/)?.[1] ?? '';

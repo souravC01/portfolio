@@ -2,7 +2,7 @@ import { mkdir, writeFile, copyFile, cp, readFile } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { projects } from '../src/projects.mjs';
-import { projectCards, projectsFilterBar, caseStudy, contactSection } from '../src/project-pages.mjs';
+import { projectCards, caseStudy, contactSection } from '../src/project-pages.mjs';
 
 const out = new URL('../dist/', import.meta.url);
 const src = new URL('../src/', import.meta.url);
@@ -834,11 +834,10 @@ async function build() {
     <section id="projects" class="section-wrapper projects-section">
       <div class="container">
         <div class="section-header-block reveal">
-          <p class="section-eyebrow" data-i18n="projects_eyebrow">// FEATURED WORK &amp; ENGINEERING EVIDENCE</p>
+          <p class="section-eyebrow" data-i18n="projects_eyebrow">FEATURED WORK &amp; ENGINEERING EVIDENCE</p>
           <h2 class="section-title" data-i18n="projects_title">Featured Projects</h2>
           <p class="section-subtitle" data-i18n="projects_subtitle">Production systems, distributed architectures, applied AI workflows, and empirical research.</p>
         </div>
-        ${projectsFilterBar()}
         <div class="projects-grid">
           ${projectCards()}
         </div>
@@ -854,38 +853,6 @@ async function build() {
     </div>
   </footer>
 
-  <!-- ==================== FLOATING AUDIO PLAYER WIDGET ==================== -->
-  <audio id="bg-audio" src="/assets/audio/lofi.mp3" preload="metadata" loop crossorigin="anonymous"></audio>
-
-  <div class="floating-audio-widget">
-    <div class="audio-pill">
-      <button class="audio-play-btn" aria-label="Play background music">
-        <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 text-accent-orange ml-0.5" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-          <polygon points="6 3 20 12 6 21 6 3"></polygon>
-        </svg>
-      </button>
-      <div class="equalizer-bars-group">
-        <div class="equalizer-bar"></div>
-        <div class="equalizer-bar"></div>
-        <div class="equalizer-bar"></div>
-        <div class="equalizer-bar"></div>
-        <div class="equalizer-bar"></div>
-        <div class="equalizer-bar"></div>
-        <div class="equalizer-bar"></div>
-        <div class="equalizer-bar"></div>
-        <div class="equalizer-bar"></div>
-        <div class="equalizer-bar"></div>
-        <div class="equalizer-bar"></div>
-        <div class="equalizer-bar"></div>
-      </div>
-      <div class="audio-music-icon">
-        <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-3 w-3 text-accent-orange" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="8" cy="18" r="4"></circle>
-          <path d="M12 18V2l7 4"></path>
-        </svg>
-      </div>
-    </div>
-  </div>
 </body>
 </html>
 `;

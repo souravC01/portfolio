@@ -33,25 +33,27 @@ export function projectsFilterBar() {
 
 export function projectCards() {
   return projects.map(project => `<article class="project-card reveal" data-category="${project.filterCategory}" data-slug="${project.slug}" lang="en">
-    <div class="project-blueprint-header" style="--accent-glow: ${project.themeColor};">
-      <div class="blueprint-topbar">
-        <div class="blueprint-domain">
-          <span class="blueprint-pip" style="background-color: ${project.themeColor};" aria-hidden="true"></span>
-          <span class="blueprint-category">${escape(project.category)}</span>
-        </div>
-        <div class="blueprint-date">
-          <svg class="blueprint-cal-icon" stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg>
-          <span>${escape(project.timeline)}</span>
-        </div>
+    <div class="project-card-header">
+      <div class="project-card-domain">
+        <span class="project-domain-pip" style="background-color: ${project.themeColor};" aria-hidden="true"></span>
+        <span class="project-domain-text">${escape(project.category)}</span>
       </div>
-      <div class="blueprint-canvas">
-        <div class="blueprint-grid-bg" aria-hidden="true"></div>
-        <div class="blueprint-watermark" aria-hidden="true">${escape(project.watermark)}</div>
-        <div class="blueprint-media-frame">
-          <img class="blueprint-thumbnail" src="${screenshots[project.slug]}" alt="${escape(project.name)} ${project.slug === 'toronto-airbnb' ? 'research community map' : 'application screenshot'}" loading="lazy" decoding="async">
-          <div class="blueprint-glow-overlay" aria-hidden="true"></div>
-          <div class="blueprint-badge" style="border-color: ${project.themeColor}; color: ${project.themeColor};">${escape(project.featuredBadge)}</div>
+    </div>
+    <div class="project-preview-frame">
+      <div class="preview-browser-bar" aria-hidden="true">
+        <div class="preview-dots">
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
+        <div class="preview-address-bar">
+          <svg class="preview-lock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+          <span class="preview-address-text">${project.slug}.sourav.dev</span>
+        </div>
+        <div class="preview-badge" style="color: ${project.themeColor}; border-color: ${project.themeColor};">${escape(project.featuredBadge)}</div>
+      </div>
+      <div class="project-media-wrapper">
+        <img class="project-thumbnail" src="${screenshots[project.slug]}" alt="${escape(project.name)} ${project.slug === 'toronto-airbnb' ? 'research community map' : 'application screenshot'}" loading="lazy" decoding="async">
       </div>
     </div>
     <div class="project-info">
