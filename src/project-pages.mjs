@@ -1,5 +1,7 @@
 import { projects } from './projects.mjs';
 
+const siteUrl = 'https://souravchandhok.dev';
+
 const escape = value => String(value).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const screenshots = {
   roleimpact: '/assets/images/roleimpact-live.jpg',
@@ -71,8 +73,27 @@ export const contactSection = `<section id="contact" class="section-wrapper cont
 
 export function caseStudy(project, index) {
   const next = projects[(index + 1) % projects.length];
+  const projectUrl = `${siteUrl}/projects/${project.slug}/`;
+  const projectImage = `${siteUrl}${screenshots[project.slug]}`;
   return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>${escape(project.name)} — Sourav Chandhok</title><meta name="description" content="${escape(project.summary)}">
+  <title>${escape(project.name)} | Project by Sourav Chandhok</title>
+
+  <meta name="description" content="${escape(project.summary)}">
+  <meta name="author" content="Sourav Chandhok">
+
+  <link rel="canonical" href="${projectUrl}">
+
+  <meta property="og:title" content="${escape(project.name)} | Project by Sourav Chandhok">
+  <meta property="og:description" content="${escape(project.summary)}">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="${projectUrl}">
+  <meta property="og:image" content="${projectImage}">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="${escape(project.name)} | Project by Sourav Chandhok">
+  <meta name="twitter:description" content="${escape(project.summary)}">
+  <meta name="twitter:image" content="${projectImage}">
+
   <link rel="icon" href="/favicon.svg"><link rel="stylesheet" href="/style.css"></head><body>
   <a class="skip-to-content" href="#main">Skip to content</a>
   <header class="case-header container"><a href="/">Sourav Chandhok<span aria-hidden="true">.</span></a><a href="/#projects">All projects →</a></header>
