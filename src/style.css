@@ -3083,6 +3083,151 @@ body {
 .case-screenshot { margin: 40px 0 64px; }
 .case-screenshot img { display: block; width: 100%; max-height: 650px; object-fit: contain; border: 1px solid var(--border-medium); border-radius: 10px; }
 .case-screenshot figcaption { margin-top: 12px; }
+
+/* Interactive Showcase Gallery */
+.case-showcase .showcase-viewport {
+  position: relative;
+  width: 100%;
+  max-height: 650px;
+  background: rgba(246, 245, 239, 0.6);
+  border: 1px solid var(--border-medium);
+  border-radius: 10px;
+  overflow: hidden;
+  outline: none;
+}
+
+.case-showcase .showcase-viewport:focus-visible {
+  border-color: var(--accent-orange);
+  box-shadow: 0 0 0 2px rgba(255, 92, 57, 0.25);
+}
+
+.case-showcase .showcase-slides {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.case-showcase .showcase-slide {
+  display: none;
+  width: 100%;
+  opacity: 0;
+  transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.case-showcase .showcase-slide.active {
+  display: block;
+  opacity: 1;
+}
+
+.case-showcase .showcase-slide img {
+  display: block;
+  width: 100%;
+  max-height: 650px;
+  object-fit: contain;
+  margin: 0 auto;
+  border: none;
+  border-radius: 0;
+}
+
+/* Floating Navigation Controls with Dark Glass Backdrop */
+.showcase-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 9999px;
+  background: rgba(22, 22, 22, 0.65);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  padding: 0;
+}
+
+.showcase-nav-btn:hover {
+  background: rgba(255, 92, 57, 0.9);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-50%) scale(1.08);
+  box-shadow: 0 6px 20px rgba(255, 92, 57, 0.4);
+}
+
+.showcase-nav-btn:active {
+  transform: translateY(-50%) scale(0.96);
+}
+
+.showcase-nav-btn svg {
+  width: 20px;
+  height: 20px;
+  stroke: currentColor;
+  pointer-events: none;
+}
+
+.showcase-prev {
+  left: 16px;
+}
+
+.showcase-next {
+  right: 16px;
+}
+
+/* Floating Counter Badge in Corner */
+.showcase-counter {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  background: rgba(22, 22, 22, 0.72);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 9999px;
+  padding: 4px 12px;
+  color: #ffffff;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  z-index: 10;
+  pointer-events: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.showcase-counter-current {
+  color: var(--accent-orange);
+}
+
+@media (max-width: 640px) {
+  .showcase-nav-btn {
+    width: 38px;
+    height: 38px;
+  }
+  .showcase-nav-btn svg {
+    width: 17px;
+    height: 17px;
+  }
+  .showcase-prev {
+    left: 10px;
+  }
+  .showcase-next {
+    right: 10px;
+  }
+  .showcase-counter {
+    bottom: 10px;
+    right: 10px;
+    font-size: 0.72rem;
+    padding: 3px 9px;
+  }
+}
 .case-layout { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 56px; }
 .case-toc { display: flex; flex-direction: column; align-self: start; position: sticky; top: 32px; gap: 16px; font-size: .9rem; }
 .case-layout article { max-width: 800px; }

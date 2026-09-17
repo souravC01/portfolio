@@ -151,17 +151,16 @@ async function runChecks() {
     'assets/images/fr.svg',
     'assets/images/MOE.png',
     'assets/images/me.jpg',
-    'assets/images/project-jobhelper.jpg',
-    'assets/images/project-roleimpact.jpg',
-    'assets/images/project-airbnb.jpg',
+    'assets/images/JobHelperGuru1.png',
+    'assets/images/Roleimpact1.png',
+    'assets/images/Toronto Airbnb 1.png',
+    'assets/images/yu-bazaar1.png',
     'assets/images/york-campus.jpg',
     'assets/images/lassonde-bergeron.jpg',
     'assets/images/yorku-logo.jpg',
     'assets/images/best-logo.png',
     'assets/images/lassonde-logo.png',
-    'assets/images/york-lions.png',
-    'assets/yu-bazaar.jpg',
-    'assets/airbnb-network.png'
+    'assets/images/york-lions.png'
   ];
 
   for (const rel of requiredAssets) {

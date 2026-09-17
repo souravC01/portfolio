@@ -10,12 +10,12 @@
   <meta property="og:description" content="A modernized Java campus marketplace for York University students featuring Spring Security, OTP verification, persistent PostgreSQL storage, cloud-hosted listing images, and automated CI/CD.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://souravchandhok.dev/projects/yu-bazaar/">
-  <meta property="og:image" content="https://souravchandhok.dev/assets/yu-bazaar.jpg">
+  <meta property="og:image" content="https://souravchandhok.dev/assets/images/yu-bazaar1.png">
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="YU Bazaar | Project by Sourav Chandhok">
   <meta name="twitter:description" content="A modernized Java campus marketplace for York University students featuring Spring Security, OTP verification, persistent PostgreSQL storage, cloud-hosted listing images, and automated CI/CD.">
-  <meta name="twitter:image" content="https://souravchandhok.dev/assets/yu-bazaar.jpg">
+  <meta name="twitter:image" content="https://souravchandhok.dev/assets/images/yu-bazaar1.png">
 
   <link rel="icon" href="/favicon.svg"><link rel="stylesheet" href="/style.css"></head><body>
   <a class="skip-to-content" href="#main">Skip to content</a>
@@ -23,7 +23,29 @@
   <main id="main" class="case-main container"><div class="case-intro"><p class="section-eyebrow">JAVA / CLOUD &amp; SECURITY</p>
   <h1>YU Bazaar</h1><p class="case-summary">A modernized Java campus marketplace for York University students featuring Spring Security, OTP verification, persistent PostgreSQL storage, cloud-hosted listing images, and automated CI/CD.</p><div class="project-tags"><span>Java 17</span><span>Spring Security</span><span>PostgreSQL</span><span>Docker</span><span>Cloudflare R2</span></div><div class="project-actions"><a href="https://github.com/souravC01/yu-bazaar" target="_blank" rel="noopener noreferrer">GitHub</a><a href="https://yu-bazaar.onrender.com/" target="_blank" rel="noopener noreferrer">Live demo ↗</a></div>
   <p class="case-note">Live demos may take a moment to wake up. Case studies and screenshots remain available here.</p></div>
-  <figure class="case-screenshot"><img src="/assets/yu-bazaar.jpg" alt="YU Bazaar application screenshot"><figcaption>YU Bazaar · Campus marketplace</figcaption></figure>
+  <figure class="case-screenshot case-showcase" data-showcase>
+    <div class="showcase-viewport" tabindex="0" role="region" aria-roledescription="carousel" aria-label="YU Bazaar screenshot gallery">
+      <div class="showcase-slides">
+        
+        <div class="showcase-slide active" data-index="0">
+          <img src="/assets/images/yu-bazaar1.png" alt="YU Bazaar listing creation and account security verification" loading="eager" decoding="async">
+        </div>
+        <div class="showcase-slide" data-index="1">
+          <img src="/assets/images/yu-bazaar2.png" alt="YU Bazaar listing details and student contact flow" loading="lazy" decoding="async">
+        </div>
+      </div>
+      <button type="button" class="showcase-nav-btn showcase-prev" aria-label="Previous screenshot">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+      </button>
+      <button type="button" class="showcase-nav-btn showcase-next" aria-label="Next screenshot">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+      </button>
+      <div class="showcase-counter" aria-live="polite">
+        <span class="showcase-counter-current">1</span> / <span class="showcase-counter-total">2</span>
+      </div>
+    </div>
+    <figcaption>YU Bazaar · Campus marketplace</figcaption>
+  </figure>
   <div class="case-layout"><nav class="case-toc" aria-label="Case study contents"><a href="#problem">The problem</a><a href="#role">From team project to portfolio system</a><a href="#approach">Marketplace journey</a><a href="#architecture">Architecture</a><a href="#challenges">From course project to durable application</a><a href="#results">Result and scope</a><a href="#learning">What the project taught me</a></nav>
   <article><section id="problem"><h2>The problem</h2><p>A campus marketplace needs more than listings. Users need to understand who is selling, recover access to their accounts, upload photographs, contact sellers safely, and manage their own listings without exposing credentials or giving other users control over their content.</p></section><section id="role"><h2>From team project to portfolio system</h2><p>The original application was a four-person York University course project. My original contributions included registration and recovery email notifications, password recovery, York email OTP verification, item search and live suggestions, and listing and homepage workflow fixes.</p><p>I later maintained an independent portfolio edition, adding production-oriented infrastructure, security improvements, cloud media storage, verification tiers, protected reviewer access, automated testing, database migrations, CI/CD, and deployment work. The <a href="https://github.com/hvpham-yorku/YuBazaar" target="_blank" rel="noopener noreferrer">original team repository</a> and contributor credit remain distinct from these later improvements.</p></section><section id="approach"><h2>Marketplace journey</h2><p>Visitors can browse public listings without signing in. Sellers can register, verify their email address, create listings, upload photographs, and manage only the items they own.</p><p>York email verification adds a York Verified Student badge, while other verified sellers remain clearly distinguished from York-verified accounts.</p><p>Reviewers can use a protected read-only demo path, and buyers can contact sellers through controlled email inquiries. Payments and physical exchanges take place outside the application.</p></section><section id="architecture"><h2>Architecture</h2><figure class="architecture-diagram architecture-diagram-yub" aria-label="YU Bazaar application architecture and runtime flow">
   <svg class="architecture-tree-svg" viewBox="0 0 780 430" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="YU Bazaar application architecture diagram">
@@ -140,4 +162,32 @@
   <h2 class="section-title">Have an opportunity in mind?</h2>
   <p>I'm seeking full-time Java backend, full-stack, and AI application development opportunities across Canada.</p>
   <div class="project-actions"><a href="mailto:sourav.chandhok@gmail.com">sourav.chandhok@gmail.com</a><a href="https://www.linkedin.com/in/souravchandhok">LinkedIn ↗</a><a href="https://drive.google.com/drive/folders/1KaP-RA-Se7_0GJAdX_mI6Da3yhFThYQa?usp=drive_link" target="_blank" rel="noopener noreferrer">Download my resume</a></div>
-</div></section><footer class="site-footer"><p>Made by Sourav Chandhok · Toronto, Canada</p></footer></body></html>
+</div></section><footer class="site-footer"><p>Made by Sourav Chandhok · Toronto, Canada</p></footer>
+  <script>
+  (function() {
+    var showcase = document.querySelector('[data-showcase]');
+    if (!showcase) return;
+    var slides = showcase.querySelectorAll('.showcase-slide');
+    var prevBtn = showcase.querySelector('.showcase-prev');
+    var nextBtn = showcase.querySelector('.showcase-next');
+    var currentEl = showcase.querySelector('.showcase-counter-current');
+    var viewport = showcase.querySelector('.showcase-viewport');
+    if (!slides.length) return;
+    var currentIndex = 0;
+    var total = slides.length;
+    function goToSlide(index) {
+      slides[currentIndex].classList.remove('active');
+      currentIndex = (index + total) % total;
+      slides[currentIndex].classList.add('active');
+      if (currentEl) currentEl.textContent = String(currentIndex + 1);
+    }
+    if (prevBtn) prevBtn.addEventListener('click', function(e) { e.preventDefault(); goToSlide(currentIndex - 1); });
+    if (nextBtn) nextBtn.addEventListener('click', function(e) { e.preventDefault(); goToSlide(currentIndex + 1); });
+    if (viewport) {
+      viewport.addEventListener('keydown', function(e) {
+        if (e.key === 'ArrowLeft') { e.preventDefault(); goToSlide(currentIndex - 1); }
+        else if (e.key === 'ArrowRight') { e.preventDefault(); goToSlide(currentIndex + 1); }
+      });
+    }
+  })();
+  </script></body></html>

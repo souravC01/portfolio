@@ -4,10 +4,40 @@ const siteUrl = 'https://souravchandhok.dev';
 
 const escape = value => String(value).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const screenshots = {
-  roleimpact: '/assets/images/roleimpact-live.jpg',
-  jobhelperguru: '/assets/images/jobhelper-live.jpg',
-  'yu-bazaar': '/assets/yu-bazaar.jpg',
-  'toronto-airbnb': '/assets/airbnb-network.png'
+  roleimpact: '/assets/images/Roleimpact1.png',
+  jobhelperguru: '/assets/images/JobHelperGuru1.png',
+  'yu-bazaar': '/assets/images/yu-bazaar1.png',
+  'toronto-airbnb': '/assets/images/Toronto%20Airbnb%201.png'
+};
+const showcases = {
+  roleimpact: [
+    { src: '/assets/images/Roleimpact1.png', alt: 'RoleImpact access-change simulation and mitigation analysis' },
+    { src: '/assets/images/Roleimpact2.png', alt: 'RoleImpact organization structure and roles model' },
+    { src: '/assets/images/Roleimpact%203.png', alt: 'RoleImpact workflow and capability mapping' },
+    { src: '/assets/images/roleimpact%204.png', alt: 'RoleImpact operational consequence analysis' },
+    { src: '/assets/images/roleimpact%205.png', alt: 'RoleImpact mitigation recommendations' },
+    { src: '/assets/images/roleimpact%206.png.png', alt: 'RoleImpact relationship path tracing' },
+    { src: '/assets/images/roleimpact%207.png', alt: 'RoleImpact access changes evaluation' },
+    { src: '/assets/images/roleimpact%208.png.png', alt: 'RoleImpact simulation summary overview' }
+  ],
+  jobhelperguru: [
+    { src: '/assets/images/JobHelperGuru1.png', alt: 'JobHelperGuru ATS match scoring and qualification analysis' },
+    { src: '/assets/images/jobhelperguru2.png', alt: 'JobHelperGuru job description parsing and bullet optimizer' },
+    { src: '/assets/images/jobhelperguru3.png', alt: 'JobHelperGuru resume comparison and claim verification' },
+    { src: '/assets/images/jobhelperguru4.png', alt: 'JobHelperGuru application pipeline and tracking spreadsheet' },
+    { src: '/assets/images/jobhelperguru5.png', alt: 'JobHelperGuru model provider settings and fallback heuristics' },
+    { src: '/assets/images/jobhelperguru6.png', alt: 'JobHelperGuru workflow details and candidate tailoring' },
+    { src: '/assets/images/jobhelper-live.jpg', alt: 'JobHelperGuru workspace dashboard overview' }
+  ],
+  'yu-bazaar': [
+    { src: '/assets/images/yu-bazaar1.png', alt: 'YU Bazaar listing creation and account security verification' },
+    { src: '/assets/images/yu-bazaar2.png', alt: 'YU Bazaar listing details and student contact flow' }
+  ],
+  'toronto-airbnb': [
+    { src: '/assets/images/Toronto%20Airbnb%201.png', alt: 'Toronto Airbnb interactive neighbourhood map exploration' },
+    { src: '/assets/images/Toronto%20Airbnb%202.png', alt: 'Toronto Airbnb Louvain and Leiden community partition comparison' },
+    { src: '/assets/images/Toronto%20Airbnb%203.png', alt: 'Toronto Airbnb regression sensitivity and empirical price findings' }
+  ]
 };
 const tags = project => `<div class="project-tags">${project.tags.map(tag => `<span>${escape(tag)}</span>`).join('')}</div>`;
 const links = project => `<div class="project-actions"><a href="${project.repo}" target="_blank" rel="noopener noreferrer">GitHub</a><a href="${project.demo}" target="_blank" rel="noopener noreferrer">Live demo ↗</a></div>`;
@@ -75,6 +105,7 @@ export function caseStudy(project, index) {
   const next = projects[(index + 1) % projects.length];
   const projectUrl = `${siteUrl}/projects/${project.slug}/`;
   const projectImage = `${siteUrl}${screenshots[project.slug]}`;
+  const images = showcases[project.slug] || [{ src: screenshots[project.slug], alt: `${project.name} application screenshot` }];
   return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
   <title>${escape(project.name)} | Project by Sourav Chandhok</title>
 
@@ -100,9 +131,56 @@ export function caseStudy(project, index) {
   <main id="main" class="case-main container"><div class="case-intro"><p class="section-eyebrow">${escape(project.category)}</p>
   <h1>${escape(project.name)}</h1><p class="case-summary">${escape(project.summary)}</p>${tags(project)}${links(project)}
   <p class="case-note">Live demos may take a moment to wake up. Case studies and screenshots remain available here.</p></div>
-  <figure class="case-screenshot"><img src="${screenshots[project.slug]}" alt="${escape(project.name)} ${project.slug === 'toronto-airbnb' ? 'research community map' : 'application screenshot'}"><figcaption>${escape(project.name)} · ${escape(project.format)}</figcaption></figure>${project.metricsStrip ? `\n  ${project.metricsStrip}` : ''}
+  <figure class="case-screenshot case-showcase" data-showcase>
+    <div class="showcase-viewport" tabindex="0" role="region" aria-roledescription="carousel" aria-label="${escape(project.name)} screenshot gallery">
+      <div class="showcase-slides">
+        ${images.map((img, i) => `
+        <div class="showcase-slide${i === 0 ? ' active' : ''}" data-index="${i}">
+          <img src="${img.src}" alt="${escape(img.alt)}" loading="${i === 0 ? 'eager' : 'lazy'}" decoding="async">
+        </div>`).join('')}
+      </div>
+      <button type="button" class="showcase-nav-btn showcase-prev" aria-label="Previous screenshot">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+      </button>
+      <button type="button" class="showcase-nav-btn showcase-next" aria-label="Next screenshot">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+      </button>
+      <div class="showcase-counter" aria-live="polite">
+        <span class="showcase-counter-current">1</span> / <span class="showcase-counter-total">${images.length}</span>
+      </div>
+    </div>
+    <figcaption>${escape(project.name)} · ${escape(project.format)}</figcaption>
+  </figure>${project.metricsStrip ? `\n  ${project.metricsStrip}` : ''}
   <div class="case-layout"><nav class="case-toc" aria-label="Case study contents">${project.sections.map(section => `<a href="#${section.id}">${escape(section.title)}</a>`).join('')}</nav>
   <article>${project.sections.map(section => `<section id="${section.id}"><h2>${escape(section.title)}</h2>${section.html}</section>`).join('')}
   <nav class="case-next" aria-label="More projects"><a href="/#projects">All projects</a><a href="/projects/${next.slug}/">Next: ${escape(next.name)} →</a></nav></article></div></main>
-  ${contactSection.replace(/ data-i18n="[^"]+"/g, '')}<footer class="site-footer"><p>Made by Sourav Chandhok · Toronto, Canada</p></footer></body></html>`;
+  ${contactSection.replace(/ data-i18n="[^"]+"/g, '')}<footer class="site-footer"><p>Made by Sourav Chandhok · Toronto, Canada</p></footer>
+  <script>
+  (function() {
+    var showcase = document.querySelector('[data-showcase]');
+    if (!showcase) return;
+    var slides = showcase.querySelectorAll('.showcase-slide');
+    var prevBtn = showcase.querySelector('.showcase-prev');
+    var nextBtn = showcase.querySelector('.showcase-next');
+    var currentEl = showcase.querySelector('.showcase-counter-current');
+    var viewport = showcase.querySelector('.showcase-viewport');
+    if (!slides.length) return;
+    var currentIndex = 0;
+    var total = slides.length;
+    function goToSlide(index) {
+      slides[currentIndex].classList.remove('active');
+      currentIndex = (index + total) % total;
+      slides[currentIndex].classList.add('active');
+      if (currentEl) currentEl.textContent = String(currentIndex + 1);
+    }
+    if (prevBtn) prevBtn.addEventListener('click', function(e) { e.preventDefault(); goToSlide(currentIndex - 1); });
+    if (nextBtn) nextBtn.addEventListener('click', function(e) { e.preventDefault(); goToSlide(currentIndex + 1); });
+    if (viewport) {
+      viewport.addEventListener('keydown', function(e) {
+        if (e.key === 'ArrowLeft') { e.preventDefault(); goToSlide(currentIndex - 1); }
+        else if (e.key === 'ArrowRight') { e.preventDefault(); goToSlide(currentIndex + 1); }
+      });
+    }
+  })();
+  </script></body></html>`;
 }
