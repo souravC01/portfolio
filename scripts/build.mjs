@@ -64,7 +64,7 @@ async function build() {
     linkedin: `<svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path></svg>`,
     linux: `<svg stroke="currentColor" fill="currentColor" stroke-width="0" role="img" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M12.016 0C8.423.08 7.02 2.764 7.02 5.568c0 1.066.242 2.705.57 3.782-.676.993-1.584 2.507-1.584 4.148 0 2.222 1.134 4.316 2.44 5.344-1.026 1.41-3.14 2.054-3.14 3.327 0 .977 1.832 1.83 5.485 1.83 1.258 0 2.568-.112 3.633-.298 1.066.186 2.376.298 3.634.298 3.653 0 5.485-.853 5.485-1.83 0-1.273-2.114-1.917-3.14-3.327 1.306-1.028 2.44-3.122 2.44-5.344 0-1.64-.908-3.155-1.584-4.148.328-1.077.57-2.716.57-3.782C21.009 2.764 19.606.08 16.013 0h-3.997zm-.018 2.062h3.997c2.316 0 3.033 1.933 3.033 3.506 0 .984-.258 2.563-.574 3.498-.567-.282-1.397-.47-2.43-.47-1.748 0-2.887.498-3.66 1.263-.772-.765-1.91-1.263-3.658-1.263-1.033 0-1.863.188-2.43.47-.316-.935-.574-2.514-.574-3.498 0-1.573.717-3.506 3.033-3.506h3.263z"></path></svg>`,
     locationPin: `<svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>`,
-// Tech Stack Icons,
+    // Tech Stack Icons,
     menu: `<svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="size-6" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg>`,
     mongodb: `<svg stroke="currentColor" fill="currentColor" stroke-width="0" role="img" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M17.193 9.555c-1.264-5.58-4.252-7.414-4.573-8.115-.28-.394-.53-.954-.735-1.44-.036.495-.055.685-.523 1.184-.723.566-4.438 3.682-4.74 10.02-.282 5.912 4.27 9.435 4.888 9.884l.07.05A73.49 73.49 0 0111.91 24h.481c.114-1.032.284-2.056.51-3.07.417-.296.604-.463.85-.693a11.342 11.342 0 003.639-8.464c.01-.814-.103-1.662-.197-2.218zm-5.336 8.195s0-8.291.275-8.29c.213 0 .49 10.695.49 10.695-.381-.045-.765-1.76-.765-2.405z"></path></svg>`,
     nextjs: `<svg stroke="currentColor" fill="currentColor" stroke-width="0" role="img" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M18.665 21.978C16.808 23.27 14.517 24 12 24 5.373 24 0 18.627 0 12S5.373 0 12 0s12 5.373 12 12c0 3.584-1.574 6.801-4.067 9.001L9.22 7.2H7.2v9.6h1.6V9.453l9.865 12.525zM15.2 7.2h1.6v6.4h-1.6V7.2z"></path></svg>`,
@@ -93,13 +93,18 @@ async function build() {
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Sourav's Portfolio</title>
-  <meta name="description" content="Portfolio of Sourav Chandhok, full stack developer specializing in modern web, backend, and mobile applications."/>
-  <meta name="keywords" content="full stack developer, web developer, portfolio, React, TypeScript, Python, Java"/>
-  <meta name="author" content="Sourav Chandhok"/>
-  <meta property="og:title" content="Sourav Chandhok — Full Stack Developer"/>
-  <meta property="og:description" content="Portfolio of Sourav Chandhok, full stack developer specializing in modern web applications."/>
-  <meta property="og:type" content="website"/>
+<title>Sourav Chandhok | Software Developer</title>
+
+<meta name="description" content="Sourav Chandhok is a software developer based in Toronto, Canada, building Java backends, full-stack applications, AI-powered software, and production-tested systems."/>
+<meta name="author" content="Sourav Chandhok"/>
+<link rel="canonical" href="${siteUrl}/"/>
+<meta property="og:title" content="Sourav Chandhok | Software Developer"/>
+<meta property="og:description" content="Software developer based in Toronto building Java backends, full-stack applications, AI-powered software, and production-tested systems."/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="${siteUrl}/"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Sourav Chandhok | Software Developer"/>
+<meta name="twitter:description" content="Software developer based in Toronto building Java backends, full-stack applications, AI-powered software, and production-tested systems."/>
   <link rel="icon" href="/favicon.svg" type="image/svg+xml"/>
   <link rel="stylesheet" href="/style.css"/>
   <script src="/client.js" defer></script>

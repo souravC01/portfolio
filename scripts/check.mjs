@@ -14,7 +14,7 @@ async function runChecks() {
   assert(indexHtml.length > 1000, 'index.html should have substantial content');
   assert.equal((indexHtml.match(/<h1[ >]/g) || []).length, 1, 'Should have exactly one h1');
   assert.match(indexHtml, /<title>.+<\/title>/, 'Must have a title tag');
-  assert.match(indexHtml, /<meta name="description" content="[^"]+"/, 'Must have a meta description');
+  assert.match(indexHtml, /<meta\s+name="description"\s+content="[^"]+"/s, 'Must have a meta description');
   assert.equal(indexHtml.split(`href="${resumeDriveUrl}"`).length - 1, 3, 'Every homepage resume link must use the Google Drive folder');
   assert.equal(indexHtml.split(`href="${resumeDriveUrl}" target="_blank" rel="noopener noreferrer"`).length - 1, 3, 'Every homepage resume link must open securely in a new tab');
   assert.doesNotMatch(indexHtml, /href="\/(?:assets\/)?resume\.pdf"/, 'Homepage must not link directly to a local resume PDF');
@@ -180,7 +180,7 @@ async function runChecks() {
   for (const route of routes) {
     const html = await readFile(path.join(root, route, 'index.html'), 'utf8');
     assert.equal((html.match(/<h1[ >]/g) || []).length, 1, `${route}: one h1`);
-    assert.match(html, /<meta name="description" content="[^"]+"/, `${route}: description`);
+    assert.match(html, /<meta\s+name="description"\s+content="[^"]+"/s, `${route}: description`);
     assert.doesNotMatch(html, /href="\/(?:assets\/)?resume\.pdf"/, `${route}: resume links must not use a local PDF`);
     assert(html.includes(`href="${resumeDriveUrl}"`), `${route}: resume link must use the Google Drive folder`);
     assert(html.includes(`href="${resumeDriveUrl}" target="_blank" rel="noopener noreferrer"`), `${route}: resume link must open securely in a new tab`);
