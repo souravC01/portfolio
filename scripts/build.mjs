@@ -93,18 +93,49 @@ async function build() {
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Sourav Chandhok | Software Developer</title>
 
-<meta name="description" content="Sourav Chandhok is a software developer based in Toronto, Canada, building Java backends, full-stack applications, AI-powered software, and production-tested systems."/>
-<meta name="author" content="Sourav Chandhok"/>
-<link rel="canonical" href="${siteUrl}/"/>
-<meta property="og:title" content="Sourav Chandhok | Software Developer"/>
-<meta property="og:description" content="Software developer based in Toronto building Java backends, full-stack applications, AI-powered software, and production-tested systems."/>
-<meta property="og:type" content="website"/>
-<meta property="og:url" content="${siteUrl}/"/>
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:title" content="Sourav Chandhok | Software Developer"/>
-<meta name="twitter:description" content="Software developer based in Toronto building Java backends, full-stack applications, AI-powered software, and production-tested systems."/>
+  <title>Sourav Chandhok | Software Developer</title>
+
+  <meta name="description" content="Sourav Chandhok is a software developer based in Toronto, Canada, building Java backends, full-stack applications, AI-powered software, and production-tested systems."/>
+  <meta name="author" content="Sourav Chandhok"/>
+
+  <link rel="canonical" href="${siteUrl}/"/>
+
+  <meta property="og:title" content="Sourav Chandhok | Software Developer"/>
+  <meta property="og:description" content="Software developer based in Toronto building Java backends, full-stack applications, AI-powered software, and production-tested systems."/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="${siteUrl}/"/>
+
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="Sourav Chandhok | Software Developer"/>
+  <meta name="twitter:description" content="Software developer based in Toronto building Java backends, full-stack applications, AI-powered software, and production-tested systems."/>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    "url": "${siteUrl}/",
+    "mainEntity": {
+      "@type": "Person",
+      "@id": "${siteUrl}/#person",
+      "name": "Sourav Chandhok",
+      "url": "${siteUrl}/",
+      "image": "${siteUrl}/assets/images/me.jpg",
+      "jobTitle": "Software Developer",
+      "description": "Software developer based in Toronto, Canada, building Java backends, full-stack applications, AI-powered software, and production-tested systems.",
+      "sameAs": [
+        "https://github.com/souravC01",
+        "https://www.linkedin.com/in/souravchandhok"
+      ],
+      "alumniOf": {
+        "@type": "CollegeOrUniversity",
+        "name": "York University",
+        "url": "https://www.yorku.ca/"
+      }
+    }
+  }
+  </script>
+
   <link rel="icon" href="/favicon.svg" type="image/svg+xml"/>
   <link rel="stylesheet" href="/style.css"/>
   <script src="/client.js" defer></script>

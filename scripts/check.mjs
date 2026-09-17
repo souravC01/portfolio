@@ -160,7 +160,6 @@ async function runChecks() {
     'assets/images/best-logo.png',
     'assets/images/lassonde-logo.png',
     'assets/images/york-lions.png',
-    'assets/resume.pdf',
     'assets/yu-bazaar.jpg',
     'assets/airbnb-network.png'
   ];
