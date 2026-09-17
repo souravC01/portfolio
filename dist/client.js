@@ -25,7 +25,6 @@
       nav_contact: 'Contact',
       hero_role: 'Full-Stack, Java backend, and AI application developer',
       hero_location: 'Based in Toronto · Seeking full-time opportunities across Canada.',
-      view_projects: 'View projects',
       contact_eyebrow: "LET'S CONNECT",
       contact_title: 'Have an opportunity in mind?',
       contact_body: "I'm seeking full-time Java backend, full-stack, and AI application development opportunities across Canada.",
@@ -34,7 +33,6 @@
       hero_name: 'Sourav Chandhok',
       hero_im: "I'm a",
       hero_bio: 'Computer Science graduate from York University building resilient Java backends, modern React applications, and production-tested systems.',
-      completed_projects: 'Featured projects',
       skills_eyebrow: 'MY TOOLKIT',
       skills_title: 'Technical Skills & Tools',
       skills_subtitle: 'A comprehensive catalog of languages, frameworks, and developer toolchains I build with.',
@@ -42,18 +40,13 @@
       edu_eyebrow: 'ACADEMIC BACKGROUND & CREDENTIALS',
       edu_title: 'Education & Credentials',
       edu_subtitle: 'Foundational computer science principles, software architecture, and technology entrepreneurship.',
-      edu_1_status: 'Academic Requirements Completed',
       edu_1_title: 'B.Sc. (Honours) in Computer Science',
-      edu_focus_1: 'Software & Systems',
       edu_1_school: 'York University • Toronto, ON',
       edu_1_convocation: 'October, 2026',
       edu_1_desc: 'Computer Science program focused on software engineering, algorithms, data structures, object-oriented programming, operating systems, and database systems, with extensive development experience in Java.',
       edu_tags_foundations: 'CORE FOUNDATIONS & COURSEWORK',
-      edu_2_status: 'Certificate of Achievement',
       edu_2_title: 'Bergeron Entrepreneurs in Science & Technology (BEST) Certificate',
-      edu_focus_2: 'Tech Commercialization',
       edu_2_school: 'Lassonde School of Engineering • York University',
-      edu_2_convocation: 'Bergeron Entrepreneurs in Science & Technology',
       edu_2_desc: 'Entrepreneurship and technology innovation program focused on product development, business model validation, venture creation, and translating technical ideas into viable solutions.',
       edu_tags_capabilities: 'SPECIALIZED CAPABILITIES',
       // Experiences
@@ -68,11 +61,6 @@
       exp_1_title: 'Application Programmer Analyst Co-op',
       exp_1_company: 'Ministry of Education, Ontario Public Service',
       exp_1_date: 'May 2023 - Aug 2024',
-      exp_1_desc: 'Supported development, testing, and release of Ontario government web applications using React, Java, and REST APIs across QA and UAT environments. Implemented JavaScript/React front-end changes alongside Java backend logic for functional workflows. Automated REST API tests with REST Assured, Postman, and Newman while validating backend data with SQL and Oracle for payloads and data flows. Built and maintained 500+ manual and automated test cases with Java, Selenium WebDriver, and TestNG using the Page Object Model (POM) for cross-browser testing (Chrome & Edge). Configured Jenkins CI/CD jobs with Maven parameters to execute automated regression suites, tracked 200+ defects in JIRA and HP ALM, and actively contributed to Agile/Scrum sprint planning, stand-ups, and retrospectives.',
-      // Projects
-      proj_1_desc: 'AI-powered job application workspace using React and Python/FastAPI that analyzes postings, matches résumés, suggests evidence-aware bullet revisions, and features an offline heuristic fallback when external models are unavailable. Verified with automated pytest suites.',
-      proj_2_desc: 'Full-stack access-impact simulator built with Java 21, Spring Boot, and React. Evaluates permission changes using deterministic domain models, asynchronous Kafka microservices, and Testcontainers integration tests against real PostgreSQL instances.',
-      proj_3_desc: 'A modernized Java campus marketplace for York University students featuring Spring Security, OTP verification, persistent PostgreSQL storage, cloud-hosted listing images, and automated CI/CD.',
       typewriter_words: [
         'Software Developer',
         'Java Backend Developer',
@@ -106,7 +94,6 @@
       nav_contact: 'Contact',
       hero_role: "Développeur full-stack, Java backend et d’applications IA",
       hero_location: 'Basé à Toronto · À la recherche d’un poste à temps plein au Canada.',
-      view_projects: 'Voir les projets',
       contact_eyebrow: 'CONTACT',
       contact_title: 'Une opportunité à partager ?',
       contact_body: 'Je recherche un poste à temps plein en développement Java backend, full-stack ou d’applications IA au Canada.',
@@ -115,7 +102,6 @@
       hero_name: 'Sourav Chandhok',
       hero_im: 'Je suis un',
       hero_bio: "Diplômé en informatique de l’Université York, concevant des backends Java résilients, des applications React modernes et des systèmes testés pour la production.",
-      completed_projects: 'Projets présentés',
       skills_eyebrow: 'MES OUTILS',
       skills_title: 'Compétences techniques et outils',
       skills_subtitle: 'Un catalogue complet des langages, frameworks et outils de développement que j’utilise.',
@@ -123,18 +109,13 @@
       edu_eyebrow: 'FORMATION ACADÉMIQUE & DIPLÔMES',
       edu_title: 'Formation & Diplômes',
       edu_subtitle: 'Principes fondamentaux de l’informatique, architecture logicielle et entrepreneuriat technologique.',
-      edu_1_status: 'Exigences académiques complétées',
       edu_1_title: 'B.Sc. (Spécialisé) en Informatique',
-      edu_focus_1: 'Logiciels & Systèmes',
       edu_1_school: 'Université York • Toronto, ON',
       edu_1_convocation: 'Collation des grades en octobre 2026',
       edu_1_desc: 'Programme d’informatique axé sur le génie logiciel, les algorithmes, les structures de données, la programmation orientée objet, les systèmes d’exploitation et les systèmes de bases de données, avec une vaste expérience de développement en Java.',
       edu_tags_foundations: 'FONDATIONS & COURS CLÉS',
-      edu_2_status: 'Certificat de Réussite',
       edu_2_title: 'Certificat Bergeron Entrepreneurs in Science & Technology (BEST)',
-      edu_focus_2: 'Commercialisation Tech',
       edu_2_school: 'École d’ingénierie Lassonde • Université York',
-      edu_2_convocation: 'Bergeron Entrepreneurs in Science & Technology',
       edu_2_desc: 'Programme d’entrepreneuriat et d’innovation technologique axé sur le développement de produits, la validation de modèles d’affaires, la création d’entreprises et la transformation d’idées techniques en solutions viables.',
       edu_tags_capabilities: 'COMPÉTENCES SPÉCIALISÉES',
       // Experiences
@@ -149,10 +130,6 @@
       exp_1_title: "Analyste Programmeur d'Applications (Stage)",
       exp_1_company: "Ministère de l'Éducation, Fonction publique de l'Ontario",
       exp_1_date: 'Mai 2023 - Août 2024',
-      exp_1_desc: "Participation au développement, aux tests et à la livraison d'applications web gouvernementales avec React, Java et API REST en environnements QA et UAT. Évolution du frontend React et de la logique backend Java. Automatisation des tests d'API avec REST Assured, Postman et Newman avec validation SQL et Oracle. Création de plus de 500 tests automatisés avec Java, Selenium WebDriver et TestNG (Page Object Model) sur Chrome et Edge. Configuration de jobs Jenkins CI/CD avec Maven, suivi de 200+ anomalies sur JIRA/HP ALM et participation active aux cérémonies Agile/Scrum.",
-      // Projects
-      proj_1_desc: "Espace de recherche d'emploi propulsé par l'IA avec React et Python/FastAPI avec analyse d'offres, correspondance de CV et solution de repli heuristique hors-ligne. Validé par tests pytest automatisés.",
-      proj_2_desc: "Simulateur d'impact d'accès conçu avec Java 21, Spring Boot et React. Modèles déterministes, microservices asynchrones Kafka et tests d'intégration Testcontainers avec PostgreSQL.",
       typewriter_words: [
         'Développeur Logiciel',
         'Développeur Java Backend',
@@ -485,111 +462,6 @@
     }
   }
 
-  // --- Web Audio API Equalizer & Player ---
-  function initAudioEqualizer() {
-    const audio = document.getElementById('bg-audio');
-    const playBtn = document.querySelector('.audio-play-btn');
-    const bars = document.querySelectorAll('.equalizer-bar');
-
-    if (!audio || !playBtn || bars.length === 0) return;
-
-    let audioCtx = null;
-    let analyser = null;
-    let sourceNode = null;
-    let animationFrameId = null;
-    let isPlaying = false;
-    let dataArray = null;
-
-    // SVG Icons
-    const playSvg = `<svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 text-accent-orange ml-0.5" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><polygon points="6 3 20 12 6 21 6 3"></polygon></svg>`;
-    const pauseSvg = `<svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 text-accent-orange" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><rect x="14" y="4" width="4" height="16" rx="1"></rect><rect x="6" y="4" width="4" height="16" rx="1"></rect></svg>`;
-
-    function setupAudioContext() {
-      if (audioCtx) return;
-      try {
-        const AudioContextClass = window.AudioContext || window.webkitAudioContext;
-        if (!AudioContextClass) return;
-        audioCtx = new AudioContextClass();
-        analyser = audioCtx.createAnalyser();
-        analyser.fftSize = 64;
-        sourceNode = audioCtx.createMediaElementSource(audio);
-        sourceNode.connect(analyser);
-        analyser.connect(audioCtx.destination);
-        dataArray = new Uint8Array(analyser.frequencyBinCount);
-      } catch (e) {
-        console.warn('AudioContext setup fallback:', e);
-      }
-    }
-
-    function renderBars() {
-      if (!isPlaying || reducedMotion.matches) {
-        bars.forEach(bar => {
-          bar.style.height = '3px';
-        });
-        return;
-      }
-
-      if (analyser && dataArray) {
-        analyser.getByteFrequencyData(dataArray);
-        // Distribute frequency indices across the 12 bars
-        const step = Math.max(1, Math.floor(dataArray.length / bars.length));
-        bars.forEach((bar, idx) => {
-          const val = dataArray[idx * step] || 0;
-          // Scale 0-255 to 3px-22px
-          const scaled = 3 + (val / 255) * 19;
-          bar.style.height = `${scaled.toFixed(1)}px`;
-        });
-      } else {
-        // Fallback procedural animation
-        const time = Date.now() * 0.008;
-        bars.forEach((bar, idx) => {
-          const wave = Math.sin(time + idx * 0.6) * 8 + 11;
-          bar.style.height = `${Math.max(3, wave).toFixed(1)}px`;
-        });
-      }
-
-      animationFrameId = requestAnimationFrame(renderBars);
-    }
-
-    async function togglePlay() {
-      setupAudioContext();
-
-      if (audioCtx && audioCtx.state === 'suspended') {
-        await audioCtx.resume();
-      }
-
-      if (audio.paused) {
-        try {
-          await audio.play();
-          isPlaying = true;
-          playBtn.innerHTML = pauseSvg;
-          playBtn.setAttribute('aria-label', 'Pause background music');
-          renderBars();
-        } catch (err) {
-          console.warn('Audio playback error:', err);
-        }
-      } else {
-        audio.pause();
-        isPlaying = false;
-        playBtn.innerHTML = playSvg;
-        playBtn.setAttribute('aria-label', 'Play background music');
-        if (animationFrameId) cancelAnimationFrame(animationFrameId);
-        bars.forEach(bar => {
-          bar.style.height = '3px';
-        });
-      }
-    }
-
-    playBtn.addEventListener('click', togglePlay);
-
-    audio.addEventListener('ended', () => {
-      isPlaying = false;
-      playBtn.innerHTML = playSvg;
-      playBtn.setAttribute('aria-label', 'Play background music');
-      if (animationFrameId) cancelAnimationFrame(animationFrameId);
-      bars.forEach(bar => bar.style.height = '3px');
-    });
-  }
 
   // --- Lenis Smooth Momentum Scrolling (matching emmanuelebeh.dev) ---
   function initSmoothScroll() {
@@ -787,46 +659,6 @@
     });
   }
 
-  // --- Projects Category Filter ---
-  function initProjectsFilter() {
-    const filterBar = document.querySelector('.projects-filter-bar');
-    if (!filterBar) return;
-
-    const filterBtns = filterBar.querySelectorAll('.project-filter-btn');
-    const cards = document.querySelectorAll('.projects-grid .project-card');
-
-    filterBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const filter = btn.dataset.filter;
-
-        // Update active tab button
-        filterBtns.forEach(b => {
-          b.classList.remove('active');
-          b.setAttribute('aria-selected', 'false');
-        });
-        btn.classList.add('active');
-        btn.setAttribute('aria-selected', 'true');
-
-        // Filter cards smoothly
-        cards.forEach(card => {
-          const category = card.dataset.category;
-          if (filter === 'all' || category === filter) {
-            card.classList.remove('is-hidden');
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(8px)';
-            requestAnimationFrame(() => {
-              card.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
-              card.style.opacity = '1';
-              card.style.transform = 'none';
-            });
-          } else {
-            card.classList.add('is-hidden');
-          }
-        });
-      });
-    });
-  }
-
   // --- Initialize Everything ---
   function initAll() {
     initSmoothScroll();
@@ -836,9 +668,7 @@
     initMobileDrawer();
     initScrollReveals();
     initScrollSpy();
-    initAudioEqualizer();
     initSkillsFilter();
-    initProjectsFilter();
   }
 
   if (document.readyState === 'loading') {

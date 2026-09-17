@@ -16,7 +16,7 @@ No dependency installation is necessary for the build or structural tests. Node.
 
 For keyboard, reduced-motion, no-JavaScript, and project-navigation regression tests, start the preview and run `node scripts/check-browser.mjs`. This optional test requires Playwright and Microsoft Edge; alternatively pass the absolute path to an existing Playwright `index.mjs` installation as the first argument.
 
-`src/home.mjs` and `src/portrait.css` are legacy files and are not used by the current build. Case studies are English-only; the homepage retains its EN/FR controls.
+Case studies are English-only; the homepage retains its EN/FR controls.
 
 ## Scope
 

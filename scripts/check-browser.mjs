@@ -50,12 +50,9 @@ try {
     await page.keyboard.press('Tab');
     assert.equal(await page.evaluate(() => !!document.activeElement.closest('#projects')), true);
   });
-  await check('Reduced motion disables drawer transition and audio visualization', async page => {
+  await check('Reduced motion disables drawer transition', async page => {
     await page.emulateMedia({ reducedMotion: 'reduce' });
     assert.equal(await page.locator('.mobile-drawer').evaluate(el => getComputedStyle(el).transitionDuration), '0s');
-    await page.locator('.audio-play-btn').click();
-    await page.waitForTimeout(500);
-    assert.deepEqual(await page.locator('.equalizer-bar').evaluateAll(bars => bars.map(bar => bar.style.height)), Array(12).fill('3px'));
   });
   await check('Content remains visible without JavaScript', async page => {
     const context = await browser.newContext({ javaScriptEnabled: false });

@@ -10,26 +10,6 @@ const screenshots = {
 const tags = project => `<div class="project-tags">${project.tags.map(tag => `<span>${escape(tag)}</span>`).join('')}</div>`;
 const links = project => `<div class="project-actions"><a href="${project.repo}" target="_blank" rel="noopener noreferrer">GitHub</a><a href="${project.demo}" target="_blank" rel="noopener noreferrer">Live demo ↗</a></div>`;
 
-export function projectsFilterBar() {
-  return `<div class="projects-filter-bar reveal" role="tablist" aria-label="Filter projects by specialization">
-    <button type="button" class="project-filter-btn active" data-filter="all" role="tab" aria-selected="true">
-      <span>All Projects</span>
-      <span class="filter-count">4</span>
-    </button>
-    <button type="button" class="project-filter-btn" data-filter="java-systems" role="tab" aria-selected="false">
-      <span>Java &amp; Systems</span>
-      <span class="filter-count">2</span>
-    </button>
-    <button type="button" class="project-filter-btn" data-filter="applied-ai" role="tab" aria-selected="false">
-      <span>Applied AI</span>
-      <span class="filter-count">1</span>
-    </button>
-    <button type="button" class="project-filter-btn" data-filter="research" role="tab" aria-selected="false">
-      <span>Data &amp; Research</span>
-      <span class="filter-count">1</span>
-    </button>
-  </div>`;
-}
 
 export function projectCards() {
   return projects.map(project => `<article class="project-card reveal" data-category="${project.filterCategory}" data-slug="${project.slug}" lang="en">
