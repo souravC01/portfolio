@@ -71,7 +71,16 @@
       proj_1_desc: 'AI-powered job application workspace using React and Python/FastAPI that analyzes postings, matches résumés, suggests evidence-aware bullet revisions, and features an offline heuristic fallback when external models are unavailable. Verified with automated pytest suites.',
       proj_2_desc: 'Full-stack access-impact simulator built with Java 21, Spring Boot, and React. Evaluates permission changes using deterministic domain models, asynchronous Kafka microservices, and Testcontainers integration tests against real PostgreSQL instances.',
       proj_3_desc: 'A modernized Java campus marketplace for York University students featuring Spring Security, OTP verification, persistent PostgreSQL storage, cloud-hosted listing images, and automated CI/CD.',
-      typewriter_words: ['Full-Stack Developer', 'Java Backend Engineer', 'AI Application Developer', 'Software Engineer'],
+      typewriter_words: [
+        'Software Developer',
+        'Java Backend Developer',
+        'Problem Solver',
+        'Full-Stack Developer',
+        'AI Application Developer',
+        'Curious Builder',
+        'Adventurer',
+        'Yu Lion'
+      ],
       // AFK / Hobbies
       afk_eyebrow: 'OUTSIDE THE CODE',
       afk_title: 'Beyond the Terminal',
@@ -142,7 +151,16 @@
       // Projects
       proj_1_desc: "Espace de recherche d'emploi propulsé par l'IA avec React et Python/FastAPI avec analyse d'offres, correspondance de CV et solution de repli heuristique hors-ligne. Validé par tests pytest automatisés.",
       proj_2_desc: "Simulateur d'impact d'accès conçu avec Java 21, Spring Boot et React. Modèles déterministes, microservices asynchrones Kafka et tests d'intégration Testcontainers avec PostgreSQL.",
-      typewriter_words: ['Développeur Full-Stack', 'Ingénieur Java Backend', 'Développeur Applications IA', 'Ingénieur Logiciel'],
+      typewriter_words: [
+        'Développeur Logiciel',
+        'Développeur Java Backend',
+        'Résolveur de Problèmes',
+        'Développeur Full-Stack',
+        'Développeur Applications IA',
+        'Bâtisseur Curieux',
+        'Aventurier',
+        'Yu Lion'
+      ],
       // AFK / Hobbies
       afk_eyebrow: 'HORS DU CODE',
       afk_title: 'Au-delà du terminal',
@@ -177,7 +195,16 @@
 
     const words = i18nData[currentLang] && i18nData[currentLang].typewriter_words
       ? i18nData[currentLang].typewriter_words
-      : ['Java Developer', 'Full-Stack Developer', 'AI App Developer'];
+      : [
+          'Software Developer',
+          'Java Backend Developer',
+          'Problem Solver',
+          'Full-Stack Developer',
+          'AI Application Developer',
+          'Curious Builder',
+          'Adventurer',
+          'Yu Lion'
+        ];
 
     // On initial page load with pre-rendered first word, start from full word and pause
     if (charIndex === 0 && !isDeleting && wordIndex === 0 && target.textContent.trim() === words[0]) {

@@ -253,7 +253,7 @@ async function build() {
             </div>
             <h1 class="hero-heading">
               <span class="hero-title-name"><span data-i18n="hero_hello">Hello, I'm</span> <span data-i18n="hero_name">Sourav Chandhok</span></span>
-              <span class="hero-role-line"><span data-i18n="hero_im">I'm a</span>&nbsp;<span class="typewriter-text" aria-hidden="true">Full-Stack Developer</span><span class="animate-blink" aria-hidden="true">|</span></span>
+              <span class="hero-role-line"><span data-i18n="hero_im">I'm a</span>&nbsp;<span class="typewriter-text" aria-hidden="true">Software Developer</span><span class="animate-blink" aria-hidden="true">|</span></span>
               <span class="sr-only" data-i18n="hero_role">Full-Stack, Java Backend, and AI application developer</span>
             </h1>
             <p class="hero-bio" data-i18n="hero_bio">
