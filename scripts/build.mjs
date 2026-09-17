@@ -125,7 +125,7 @@ async function build() {
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Sourav Chandhok — Full Stack Developer</title>
+  <title>Sourav's Portfolio</title>
   <meta name="description" content="Portfolio of Sourav Chandhok, full stack developer specializing in modern web, backend, and mobile applications."/>
   <meta name="keywords" content="full stack developer, web developer, portfolio, React, TypeScript, Python, Java"/>
   <meta name="author" content="Sourav Chandhok"/>
